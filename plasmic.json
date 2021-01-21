@@ -1,0 +1,112 @@
+{
+  "platform": "react",
+  "code": {
+    "lang": "ts",
+    "scheme": "blackbox"
+  },
+  "style": {
+    "scheme": "css-modules",
+    "defaultStyleCssFilePath": "plasmic/plasmic__default_style.module.css"
+  },
+  "images": {
+    "scheme": "files",
+    "publicDir": "../public",
+    "publicUrlPrefix": "/public/"
+  },
+  "tokens": {
+    "scheme": "theo",
+    "tokensFilePath": "plasmic-tokens.theo.json"
+  },
+  "srcDir": "./src/components",
+  "defaultPlasmicDir": "./plasmic",
+  "projects": [
+    {
+      "projectId": "wBcw9dcxKyU36yfsUviVdG",
+      "projectName": "Responsive BB",
+      "version": "latest",
+      "cssFilePath": "plasmic/responsive_bb/plasmic_responsive_bb.module.css",
+      "components": [
+        {
+          "id": "CZsdhsQfR2",
+          "name": "MainPage",
+          "type": "managed",
+          "projectId": "wBcw9dcxKyU36yfsUviVdG",
+          "renderModuleFilePath": "plasmic/responsive_bb/PlasmicMainPage.tsx",
+          "importSpec": {
+            "modulePath": "MainPage.tsx"
+          },
+          "cssFilePath": "plasmic/responsive_bb/PlasmicMainPage.module.css",
+          "scheme": "blackbox"
+        },
+        {
+          "id": "N1xWE1svjO",
+          "name": "HeaderRowComp",
+          "type": "managed",
+          "projectId": "wBcw9dcxKyU36yfsUviVdG",
+          "renderModuleFilePath": "plasmic/responsive_bb/PlasmicHeaderRowComp.tsx",
+          "importSpec": {
+            "modulePath": "HeaderRowComp.tsx"
+          },
+          "cssFilePath": "plasmic/responsive_bb/PlasmicHeaderRowComp.module.css",
+          "scheme": "blackbox"
+        },
+        {
+          "id": "DFJFHCaPCd",
+          "name": "RoutesDialog",
+          "type": "managed",
+          "projectId": "wBcw9dcxKyU36yfsUviVdG",
+          "renderModuleFilePath": "plasmic/responsive_bb/PlasmicRoutesDialog.tsx",
+          "importSpec": {
+            "modulePath": "RoutesDialog.tsx"
+          },
+          "cssFilePath": "plasmic/responsive_bb/PlasmicRoutesDialog.module.css",
+          "scheme": "blackbox"
+        },
+        {
+          "id": "Ra6hYxqoFV",
+          "name": "ExpandRoutesButton",
+          "type": "managed",
+          "projectId": "wBcw9dcxKyU36yfsUviVdG",
+          "renderModuleFilePath": "plasmic/responsive_bb/PlasmicExpandRoutesButton.tsx",
+          "importSpec": {
+            "modulePath": "ExpandRoutesButton.tsx"
+          },
+          "cssFilePath": "plasmic/responsive_bb/PlasmicExpandRoutesButton.module.css",
+          "scheme": "blackbox"
+        }
+      ],
+      "icons": [
+        {
+          "id": "Mbae2-w9vC",
+          "name": "FavoriteBlack18DpsvgIcon",
+          "moduleFilePath": "plasmic/responsive_bb/icons/PlasmicIcon__FavoriteBlack18Dpsvg.tsx"
+        },
+        {
+          "id": "qYjXe9EXdM",
+          "name": "FavoriteBlack18Dpsvg2Icon",
+          "moduleFilePath": "plasmic/responsive_bb/icons/PlasmicIcon__FavoriteBlack18Dpsvg2.tsx"
+        }
+      ],
+      "images": [
+        {
+          "id": "AZt8oO7ef",
+          "name": "clark-van-der-beken-Tk0B3Dfkf_4-unsplash (2) (1).jpg",
+          "filePath": "plasmic/responsive_bb/images/clarkVanDerBekenTk0B3Dfkf4Unsplash21Jpg.jpeg"
+        }
+      ],
+      "jsBundleThemes": []
+    }
+  ],
+  "globalVariants": {
+    "variantGroups": [
+      {
+        "id": "E1isZEegCA11",
+        "name": "Screen",
+        "projectId": "wBcw9dcxKyU36yfsUviVdG",
+        "contextFilePath": "plasmic/responsive_bb/PlasmicGlobalVariant__Screen.tsx"
+      }
+    ]
+  },
+  "cliVersion": "0.1.94",
+  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.94/dist/plasmic.schema.json"
+}

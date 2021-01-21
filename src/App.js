@@ -1,25 +1,10 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import MainPage from "./components/MainPage";
+import {ScreenVariantProvider} from "./components/plasmic/responsive_bb/PlasmicGlobalVariant__Screen";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  <ScreenVariantProvider><MainPage/></ScreenVariantProvider>)
 }
 
 export default App;
