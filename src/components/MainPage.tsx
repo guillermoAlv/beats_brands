@@ -51,7 +51,7 @@ function Hit(props: any) {
     <article>
       <div>
         <div>
-          <img src="http://simpleicon.com/wp-content/uploads/tag1-64x64.png" width="32" />
+          <img alt="description of things" src="http://simpleicon.com/wp-content/uploads/tag1-64x64.png" width="32" />
         </div>
         <h1>{props.hit.title}</h1>
       </div>
