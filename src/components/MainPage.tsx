@@ -7,7 +7,14 @@ import {
 } from "./plasmic/responsive_bb/PlasmicMainPage";
 import RoutesDialog from "./RoutesDialog"
 import HeaderRowComp from "./HeaderRowComp"
-
+import {SearchBox} from 'react-instantsearch-dom';
+import algoliasearch from 'algoliasearch';
+import {
+  InstantSearch,
+  connectStateResults,
+  Hits,
+  Configure
+} from 'react-instantsearch-dom';
 // Your component props start with props for variants and slots you defined
 // in Plasmic, but you can add more here, like event handlers that you can
 // attach to named nodes in your component.
@@ -21,6 +28,58 @@ import HeaderRowComp from "./HeaderRowComp"
 //
 // You can also stop extending from DefaultMainPageProps altogether and have
 // total control over the props for your component.
+
+const searchClient = algoliasearch(
+  'E5ACT1VI4D',
+  '58c5723bb97942db9b754bf244b1da75'
+);
+
+
+function Hit(props: any) {
+  const items = []
+  var url = new URL(props.hit.link)
+  if (Array.isArray(props.hit.prendas)) {
+    props.hit.prendas.forEach((element:any) => {
+      items.push(<li >{element}</li>)
+    });
+  }else{
+    items.push(<li >{props.hit.prendas}</li>)
+  }
+
+  return (
+    
+    <article>
+      <div>
+        <div>
+          <img src="http://simpleicon.com/wp-content/uploads/tag1-64x64.png" width="32" />
+        </div>
+        <h1>{props.hit.title}</h1>
+      </div>
+      <a href={props.hit.link}>
+        <img src={process.env.PUBLIC_URL+ '/images/' +url.hostname.replace("www.","")+'.jpg'} alt={props.hit.name} className="hit-image" />
+      </a>
+    </article>
+    
+  );
+}
+
+const   Results = connectStateResults(({ searchState, searchResults, children }) =>
+searchState && searchState.query ? (
+  <Greeting isLoggedIn={false}/>
+) : (
+  <Greeting isLoggedIn={true}/>
+)
+);
+
+function Greeting(props: any) {
+  const isLoggedIn = props.isLoggedIn;
+  if (isLoggedIn) {
+    //return (<ul className='cards_container'><TopicCard></TopicCard><TopicCard></TopicCard><TopicCard></TopicCard><TopicCard></TopicCard></ul>)
+    return (<div></div>)
+  }
+  return (<div><Configure/><Hits hitComponent={Hit} /></div>);
+}
+
 interface MainPageProps extends DefaultMainPageProps {}
 
 function MainPage(props: MainPageProps) {
@@ -39,7 +98,32 @@ function MainPage(props: MainPageProps) {
   //
   // By default, we are just piping all MainPageProps here, but feel free
   // to do whatever works for you.
-  return <PlasmicMainPage routesDi={isRouteDialogShowed ? <RoutesDialog/> : null} headerRowA={<HeaderRowComp expand={()=>updateRouteDialog(!isRouteDialogShowed)}/>} {...props} />;
+  return <InstantSearch searchClient={searchClient} indexName="dev_manu"><PlasmicMainPage routesDi={isRouteDialogShowed ? <RoutesDialog/> : null} headerRowA={<HeaderRowComp expand={()=>updateRouteDialog(!isRouteDialogShowed)} headerSearchBox={       <SearchBox
+    translations={{
+      placeholder: 'Prendas, estilo, mujer, hombre ...',
+    }}
+    submit={
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        viewBox="0 0 18 18"
+      >
+        <g
+          fill="none"
+          fillRule="evenodd"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="1.67"
+          transform="translate(1 1)"
+        >
+          <circle cx="7.11" cy="7.11" r="7.11" />
+          <path d="M16 16l-3.87-3.87" />
+        </g>
+      </svg>
+    }
+  />}/>} storesResults={<Results/>} {...props} /></InstantSearch>;
 }
 
 export default MainPage;

@@ -41,9 +41,14 @@ export type PlasmicHeaderRowComp__VariantsArgs = {};
 type VariantPropType = keyof PlasmicHeaderRowComp__VariantsArgs;
 export const PlasmicHeaderRowComp__VariantProps = new Array<VariantPropType>();
 
-export type PlasmicHeaderRowComp__ArgsType = {};
+export type PlasmicHeaderRowComp__ArgsType = {
+  headerSearchBox?: React.ReactNode;
+};
+
 type ArgPropType = keyof PlasmicHeaderRowComp__ArgsType;
-export const PlasmicHeaderRowComp__ArgProps = new Array<ArgPropType>();
+export const PlasmicHeaderRowComp__ArgProps = new Array<ArgPropType>(
+  "headerSearchBox"
+);
 
 export type PlasmicHeaderRowComp__OverridesType = {
   root?: p.Flex<"div">;
@@ -53,6 +58,7 @@ export type PlasmicHeaderRowComp__OverridesType = {
 };
 
 export interface DefaultHeaderRowCompProps {
+  headerSearchBox?: React.ReactNode;
   className?: string;
 }
 
@@ -83,7 +89,9 @@ function PlasmicHeaderRowComp__RenderFunc(props: {
         data-plasmic-override={overrides.headerSearch}
         className={classNames(defaultcss.all, sty.headerSearch)}
       >
-        <div className={classNames(defaultcss.all, sty.box__ps6AM)} />
+        <div className={classNames(defaultcss.all, sty.box__ps6AM)}>
+          <p.PlasmicSlot defaultContents={null} value={args.headerSearchBox} />
+        </div>
       </div>
 
       {(hasVariant(globalVariants, "screen", "mobile") ? false : true) ? (

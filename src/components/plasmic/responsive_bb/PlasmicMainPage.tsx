@@ -29,6 +29,8 @@ import {
 } from "@plasmicapp/react-web";
 import RoutesDialog from "../../RoutesDialog"; // plasmic-import: DFJFHCaPCd/component
 
+import { ScreenContext, ScreenValue } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: E1isZEegCA11/globalVariant
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 import defaultcss from "../plasmic__default_style.module.css"; // plasmic-import: global/defaultcss
 import projectcss from "./plasmic_responsive_bb.module.css"; // plasmic-import: wBcw9dcxKyU36yfsUviVdG/projectcss
@@ -42,12 +44,14 @@ export const PlasmicMainPage__VariantProps = new Array<VariantPropType>();
 export type PlasmicMainPage__ArgsType = {
   routesDi?: React.ReactNode;
   headerRowA?: React.ReactNode;
+  storesResults?: React.ReactNode;
 };
 
 type ArgPropType = keyof PlasmicMainPage__ArgsType;
 export const PlasmicMainPage__ArgProps = new Array<ArgPropType>(
   "routesDi",
-  "headerRowA"
+  "headerRowA",
+  "storesResults"
 );
 
 export type PlasmicMainPage__OverridesType = {
@@ -63,6 +67,7 @@ export type PlasmicMainPage__OverridesType = {
 export interface DefaultMainPageProps {
   routesDi?: React.ReactNode;
   headerRowA?: React.ReactNode;
+  storesResults?: React.ReactNode;
   className?: string;
 }
 
@@ -73,6 +78,10 @@ function PlasmicMainPage__RenderFunc(props: {
   forNode?: string;
 }) {
   const { variants, args, overrides, forNode } = props;
+
+  const globalVariants = ensureGlobalVariants({
+    screen: React.useContext(ScreenContext)
+  });
 
   return (
     <div
@@ -135,13 +144,17 @@ function PlasmicMainPage__RenderFunc(props: {
                   </div>
                 </div>
 
-                <div className={classNames(defaultcss.all, sty.box__qb4W9)}>
-                  <div className={classNames(defaultcss.all, sty.box__j8AK)} />
-                </div>
+                {(
+                  hasVariant(globalVariants, "screen", "mobile") ? false : true
+                ) ? (
+                  <div className={classNames(defaultcss.all, sty.box__qb4W9)}>
+                    <div
+                      className={classNames(defaultcss.all, sty.box__j8AK)}
+                    />
+                  </div>
+                ) : null}
               </div>
             </div>
-
-            <div className={classNames(defaultcss.all, sty.box__i4Z)} />
           </div>
         </div>
 
@@ -155,7 +168,9 @@ function PlasmicMainPage__RenderFunc(props: {
           data-plasmic-name={"storesRow"}
           data-plasmic-override={overrides.storesRow}
           className={classNames(defaultcss.all, sty.storesRow)}
-        />
+        >
+          <p.PlasmicSlot defaultContents={null} value={args.storesResults} />
+        </div>
 
         <div
           data-plasmic-name={"footerRow"}
@@ -164,20 +179,18 @@ function PlasmicMainPage__RenderFunc(props: {
         />
       </div>
 
-      {false ? (
-        <div className={classNames(defaultcss.all, sty.box__wyNpQ)}>
-          <p.PlasmicSlot
-            defaultContents={
-              <RoutesDialog
-                data-plasmic-name={"routesDialog"}
-                data-plasmic-override={overrides.routesDialog}
-                className={classNames("__wab_instance", sty.routesDialog)}
-              />
-            }
-            value={args.routesDi}
-          />
-        </div>
-      ) : null}
+      <div className={classNames(defaultcss.all, sty.box__wyNpQ)}>
+        <p.PlasmicSlot
+          defaultContents={
+            <RoutesDialog
+              data-plasmic-name={"routesDialog"}
+              data-plasmic-override={overrides.routesDialog}
+              className={classNames("__wab_instance", sty.routesDialog)}
+            />
+          }
+          value={args.routesDi}
+        />
+      </div>
     </div>
   ) as React.ReactElement | null;
 }
