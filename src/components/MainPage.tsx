@@ -7,6 +7,7 @@ import {
 } from "./plasmic/responsive_bb/PlasmicMainPage";
 import RoutesDialog from "./RoutesDialog"
 import HeaderRowComp from "./HeaderRowComp"
+import StoreCard from "./StoreCard"
 import {SearchBox} from 'react-instantsearch-dom';
 import algoliasearch from 'algoliasearch';
 import {
@@ -35,19 +36,9 @@ const searchClient = algoliasearch(
 
 
 function Hit(props: any) {
-  var url = new URL(props.hit.link)
+  //var url = new URL(props.hit.link)
   //return (<StoreCard/> );
-  return (    <article>
-    <div>
-      <div>
-        <img alt="description of things" src="http://simpleicon.com/wp-content/uploads/tag1-64x64.png" width="32" />
-      </div>
-      <h1>{props.hit.title}</h1>
-    </div>
-    <a href={props.hit.link}>
-      <img src={process.env.PUBLIC_URL+ '/images/' +url.hostname.replace("www.","")+'.jpg'} alt={props.hit.name} className="hit-image" />
-    </a>
-  </article>)
+  return <StoreCard/>
 }
 
 const   Results = connectStateResults(({ searchState, searchResults, children }) =>

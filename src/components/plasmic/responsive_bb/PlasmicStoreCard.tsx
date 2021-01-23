@@ -65,7 +65,13 @@ function PlasmicStoreCard__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(defaultcss.all, projectcss.root_reset, sty.root)}
-    />
+    >
+      <div className={classNames(defaultcss.all, sty.box___49RXs)}>
+        <div className={classNames(defaultcss.all, sty.box___1XQq1)} />
+
+        <div className={classNames(defaultcss.all, sty.box__jj8Ym)} />
+      </div>
+    </div>
   ) as React.ReactElement | null;
 }
 

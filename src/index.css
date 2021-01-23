@@ -120,15 +120,15 @@ height: 100%;
   }
 
   .ais-Hits-item {
-    box-shadow: 0 0 0 2pt red;
-    border-radius: 20px;
+    /*box-shadow: 0 0 0 2pt red;*/
+    /*border-radius: 20px;*/
     margin: 10px;
 }
 @media (max-width: 700px) {
   .ais-Hits-item {
     width: 32%;
-    box-shadow: 0 0 0 2pt red;
-    border-radius: 20px;
+    /*box-shadow: 0 0 0 2pt red;*/
+    /*border-radius: 20px;*/
     margin: 10px;
 }
 }
@@ -136,16 +136,16 @@ height: 100%;
   @media (max-width: 600px) {
     .ais-Hits-item {
       width: 50%;
-      box-shadow: 0 0 0 2pt red;
-      border-radius: 20px;
+      /*box-shadow: 0 0 0 2pt red;*/
+      /*border-radius: 20px;*/
       margin: 10px;
   }
   }
   @media (max-width: 400px) {
     .ais-Hits-item {
       width: 100%;
-      box-shadow: 0 0 0 2pt red;
-      border-radius: 20px;
+      /* box-shadow: 0 0 0 2pt red;*/
+      /*border-radius: 20px;*/
       margin: 10px;
   }
   }
