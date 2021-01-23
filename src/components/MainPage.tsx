@@ -5,7 +5,6 @@ import {
   PlasmicMainPage,
   DefaultMainPageProps
 } from "./plasmic/responsive_bb/PlasmicMainPage";
-import StoreCard from "./StoreCard"
 import RoutesDialog from "./RoutesDialog"
 import HeaderRowComp from "./HeaderRowComp"
 import {SearchBox} from 'react-instantsearch-dom';
@@ -13,8 +12,7 @@ import algoliasearch from 'algoliasearch';
 import {
   InstantSearch,
   connectStateResults,
-  Hits,
-  Configure
+  Hits
 } from 'react-instantsearch-dom';
 // Your component props start with props for variants and slots you defined
 // in Plasmic, but you can add more here, like event handlers that you can
@@ -37,7 +35,7 @@ const searchClient = algoliasearch(
 
 
 function Hit(props: any) {
-  var url = new URL(props.hit.link)
+  //var url = new URL(props.hit.link)
   //return (<StoreCard/> );
   return (<a href={"/"} >
   <div className="card">
