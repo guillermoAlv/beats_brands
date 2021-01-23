@@ -35,18 +35,19 @@ const searchClient = algoliasearch(
 
 
 function Hit(props: any) {
-  //var url = new URL(props.hit.link)
+  var url = new URL(props.hit.link)
   //return (<StoreCard/> );
-  return (<a href={"/"} >
-  <div className="card">
-      <div className="card-image">
+  return (    <article>
+    <div>
+      <div>
+        <img alt="description of things" src="http://simpleicon.com/wp-content/uploads/tag1-64x64.png" width="32" />
       </div>
-       <div className="card-contents"> 
-          <div className="card-rating">Rating: {5}</div>
-          <div className="card-genre"> <span>{"genero"}</span> <span>{"genero2"}</span> </div>
-      </div>
-  </div>
-</a>)
+      <h1>{props.hit.title}</h1>
+    </div>
+    <a href={props.hit.link}>
+      <img src={process.env.PUBLIC_URL+ '/images/' +url.hostname.replace("www.","")+'.jpg'} alt={props.hit.name} className="hit-image" />
+    </a>
+  </article>)
 }
 
 const   Results = connectStateResults(({ searchState, searchResults, children }) =>

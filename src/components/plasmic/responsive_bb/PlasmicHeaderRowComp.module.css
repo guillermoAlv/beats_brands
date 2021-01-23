@@ -41,6 +41,11 @@
   font-family: "Muli";
   display: inline-block;
 }
+@media (min-width: 0px) and (max-width: 800px) {
+  .box__do8Rx {
+    font-size: 18px;
+  }
+}
 .box__dofYj {
   position: relative;
   width: auto;
@@ -50,6 +55,11 @@
   font-size: 24px;
   font-family: "Muli";
   display: inline-block;
+}
+@media (min-width: 0px) and (max-width: 800px) {
+  .box__dofYj {
+    font-size: 18px;
+  }
 }
 .headerSearch {
   display: flex;
