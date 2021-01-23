@@ -5,6 +5,7 @@ import {
   PlasmicMainPage,
   DefaultMainPageProps
 } from "./plasmic/responsive_bb/PlasmicMainPage";
+import StoreCard from "./StoreCard"
 import RoutesDialog from "./RoutesDialog"
 import HeaderRowComp from "./HeaderRowComp"
 import {SearchBox} from 'react-instantsearch-dom';
@@ -36,94 +37,45 @@ const searchClient = algoliasearch(
 
 
 function Hit(props: any) {
-  const items = []
   var url = new URL(props.hit.link)
-  if (Array.isArray(props.hit.prendas)) {
-    props.hit.prendas.forEach((element:any) => {
-      items.push(<li >{element}</li>)
-    });
-  }else{
-    items.push(<li >{props.hit.prendas}</li>)
-  }
-
-  return (
-    
-    <article>
-      <div>
-        <div>
-          <img alt="description of things" src="http://simpleicon.com/wp-content/uploads/tag1-64x64.png" width="32" />
-        </div>
-        <h1>{props.hit.title}</h1>
+  //return (<StoreCard/> );
+  return (<a href={"/"} >
+  <div className="card">
+      <div className="card-image">
       </div>
-      <a href={props.hit.link}>
-        <img src={process.env.PUBLIC_URL+ '/images/' +url.hostname.replace("www.","")+'.jpg'} alt={props.hit.name} className="hit-image" />
-      </a>
-    </article>
-    
-  );
+       <div className="card-contents"> 
+          <div className="card-rating">Rating: {5}</div>
+          <div className="card-genre"> <span>{"genero"}</span> <span>{"genero2"}</span> </div>
+      </div>
+  </div>
+</a>)
 }
 
 const   Results = connectStateResults(({ searchState, searchResults, children }) =>
-searchState && searchState.query ? (
-  <Greeting isLoggedIn={false}/>
-) : (
-  <Greeting isLoggedIn={true}/>
-)
+<div><Hits hitComponent={Hit} /></div>
 );
-
-function Greeting(props: any) {
-  const isLoggedIn = props.isLoggedIn;
-  if (isLoggedIn) {
-    //return (<ul className='cards_container'><TopicCard></TopicCard><TopicCard></TopicCard><TopicCard></TopicCard><TopicCard></TopicCard></ul>)
-    return (<div></div>)
-  }
-  return (<div><Configure/><Hits hitComponent={Hit} /></div>);
-}
 
 interface MainPageProps extends DefaultMainPageProps {}
 
 function MainPage(props: MainPageProps) {
   const [isRouteDialogShowed, updateRouteDialog] = React.useState(false)
-  // Use PlasmicMainPage to render this component as it was
-  // designed in Plasmic, by activating the appropriate variants,
-  // attaching the appropriate event handlers, etc.  You
-  // can also install whatever React hooks you need here to manage state or
-  // fetch data.
-  //
-  // Props you can pass into PlasmicMainPage are:
-  // 1. Variants you want to activate,
-  // 2. Contents for slots you want to fill,
-  // 3. Overrides for any named node in the component to attach behavior and data,
-  // 4. Props to set on the root node.
-  //
-  // By default, we are just piping all MainPageProps here, but feel free
-  // to do whatever works for you.
-  return <InstantSearch searchClient={searchClient} indexName="dev_manu"><PlasmicMainPage routesDi={isRouteDialogShowed ? <RoutesDialog/> : null} headerRowA={<HeaderRowComp expand={()=>updateRouteDialog(!isRouteDialogShowed)} headerSearchBox={       <SearchBox
-    translations={{
-      placeholder: 'Prendas, estilo, mujer, hombre ...',
-    }}
-    submit={
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
-        viewBox="0 0 18 18"
-      >
-        <g
-          fill="none"
-          fillRule="evenodd"
-          stroke="currentColor"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="1.67"
-          transform="translate(1 1)"
-        >
-          <circle cx="7.11" cy="7.11" r="7.11" />
-          <path d="M16 16l-3.87-3.87" />
-        </g>
-      </svg>
-    }
-  />}/>} storesResults={<Results/>} {...props} /></InstantSearch>;
+
+  return <InstantSearch searchClient={searchClient} indexName="dev_manu">
+    <PlasmicMainPage 
+      routesDi={isRouteDialogShowed ? <RoutesDialog/> : null} 
+      headerRowA={<HeaderRowComp 
+                    expand={()=>updateRouteDialog(!isRouteDialogShowed)} 
+                    headerSearchBox={<SearchBox
+                                        submit={<div/>}
+                                        reset={<div/>}
+                                        translations={{placeholder: 'Prendas, estilo, mujer, hombre ...'}}/>}/>}
+      storesResults={<Results/>} 
+      heroRowSearchbox={<SearchBox
+        submit={<div/>}
+        reset={<div/>}
+        translations={{placeholder: 'Prendas, estilo, mujer, hombre ...'}}/>}
+      {...props} />
+  </InstantSearch>;
 }
 
 export default MainPage;

@@ -3,7 +3,7 @@
   width: 100%;
   height: 100%;
   position: relative;
-  background-color: rgba(255, 68, 239, 0.2);
+  background-color: rgb(255, 255, 255);
   min-width: 0;
   min-height: 0;
 }
@@ -14,11 +14,14 @@
   }
 }
 .box__pzqXj {
-  display: block;
+  display: flex;
   position: relative;
-  background-color: rgba(100, 255, 68, 0.2);
   width: 160px;
   height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
   flex-shrink: 0;
   min-height: 0;
 }
@@ -28,15 +31,35 @@
     flex-shrink: 0;
   }
 }
+.box__do8Rx {
+  position: relative;
+  width: auto;
+  height: auto;
+  align-self: center;
+  font-weight: 700;
+  font-size: 24px;
+  font-family: "Muli";
+  display: inline-block;
+}
+.box__dofYj {
+  position: relative;
+  width: auto;
+  height: auto;
+  align-self: center;
+  font-weight: 700;
+  font-size: 24px;
+  font-family: "Muli";
+  display: inline-block;
+}
 .headerSearch {
   display: flex;
   position: relative;
-  background-color: rgba(68, 192, 255, 0.2);
   width: 100%;
   height: 100%;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  background-color: rgb(255, 255, 255);
   min-width: 0;
   min-height: 0;
   padding: 12px;
@@ -44,7 +67,7 @@
 .box__ps6AM {
   display: flex;
   position: relative;
-  background-color: rgba(68, 192, 255, 0.2);
+  background-color: rgb(216, 216, 216);
   width: 100%;
   height: 100%;
   left: auto;
@@ -57,7 +80,6 @@
 .routes {
   display: flex;
   position: relative;
-  background-color: rgba(255, 68, 132, 0.2);
   width: 600px;
   height: 100%;
   flex-direction: row;
@@ -67,7 +89,6 @@
 .box__djDwo {
   display: flex;
   position: relative;
-  background-color: rgba(255, 132, 68, 0.2);
   width: 100%;
   height: 100%;
   flex-direction: row;
@@ -83,12 +104,12 @@
   left: auto;
   top: auto;
   font-size: 14px;
+  font-weight: 700;
   display: inline-block;
 }
 .box__wkTzp {
   display: flex;
   position: relative;
-  background-color: rgba(148, 68, 255, 0.2);
   width: 100%;
   height: 100%;
   flex-direction: row;
@@ -109,7 +130,6 @@
 .box__bhy5Y {
   display: flex;
   position: relative;
-  background-color: rgba(111, 255, 68, 0.45);
   width: 100%;
   height: 100%;
   flex-direction: row;
@@ -125,12 +145,16 @@
   left: auto;
   top: auto;
   font-size: 14px;
+  font-weight: 700;
   display: inline-block;
+  border-radius: 10px;
+  padding: 5px 8px;
+  border-width: 1px;
+  border-style: solid;
 }
 .box__pIeq {
   display: flex;
   position: relative;
-  background-color: rgba(95, 68, 255, 0.59);
   width: 100%;
   height: 100%;
   flex-direction: row;
@@ -151,7 +175,6 @@
 .box__oVvlF {
   display: flex;
   position: relative;
-  background-color: rgba(255, 255, 68, 0.46);
   width: 100%;
   height: 100%;
   flex-direction: row;

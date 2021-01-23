@@ -73,6 +73,18 @@
           },
           "cssFilePath": "plasmic/responsive_bb/PlasmicExpandRoutesButton.module.css",
           "scheme": "blackbox"
+        },
+        {
+          "id": "Px_8qz3kVB",
+          "name": "StoreCard",
+          "type": "managed",
+          "projectId": "wBcw9dcxKyU36yfsUviVdG",
+          "renderModuleFilePath": "plasmic/responsive_bb/PlasmicStoreCard.tsx",
+          "importSpec": {
+            "modulePath": "StoreCard.tsx"
+          },
+          "cssFilePath": "plasmic/responsive_bb/PlasmicStoreCard.module.css",
+          "scheme": "blackbox"
         }
       ],
       "icons": [

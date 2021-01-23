@@ -45,13 +45,15 @@ export type PlasmicMainPage__ArgsType = {
   routesDi?: React.ReactNode;
   headerRowA?: React.ReactNode;
   storesResults?: React.ReactNode;
+  heroRowSearchbox?: React.ReactNode;
 };
 
 type ArgPropType = keyof PlasmicMainPage__ArgsType;
 export const PlasmicMainPage__ArgProps = new Array<ArgPropType>(
   "routesDi",
   "headerRowA",
-  "storesResults"
+  "storesResults",
+  "heroRowSearchbox"
 );
 
 export type PlasmicMainPage__OverridesType = {
@@ -68,6 +70,7 @@ export interface DefaultMainPageProps {
   routesDi?: React.ReactNode;
   headerRowA?: React.ReactNode;
   storesResults?: React.ReactNode;
+  heroRowSearchbox?: React.ReactNode;
   className?: string;
 }
 
@@ -148,9 +151,12 @@ function PlasmicMainPage__RenderFunc(props: {
                   hasVariant(globalVariants, "screen", "mobile") ? false : true
                 ) ? (
                   <div className={classNames(defaultcss.all, sty.box__qb4W9)}>
-                    <div
-                      className={classNames(defaultcss.all, sty.box__j8AK)}
-                    />
+                    <div className={classNames(defaultcss.all, sty.box__j8AK)}>
+                      <p.PlasmicSlot
+                        defaultContents={null}
+                        value={args.heroRowSearchbox}
+                      />
+                    </div>
                   </div>
                 ) : null}
               </div>

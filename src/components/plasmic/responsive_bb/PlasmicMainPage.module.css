@@ -15,8 +15,7 @@
   height: 100%;
   left: auto;
   top: auto;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: column;
   align-content: flex-start;
   overflow: visible;
   min-width: 0;
@@ -27,10 +26,11 @@
   position: relative;
   background-color: rgba(89, 255, 68, 0.2);
   width: 100%;
-  height: 56px;
+  height: 60px;
   left: auto;
   top: auto;
   min-width: 0;
+  flex-shrink: 0;
 }
 .box__dwAp {
   display: flex;
@@ -51,12 +51,14 @@
   height: 600px;
   background-image: url("./images/clarkVanDerBekenTk0B3Dfkf4Unsplash21Jpg.jpeg");
   min-width: 0;
+  flex-shrink: 0;
 }
 @media (min-width: 0px) and (max-width: 800px) {
   .heroRow {
     width: 100%;
     height: 300px;
     min-width: 0;
+    flex-shrink: 0;
   }
 }
 .box__s4Ue0 {
@@ -97,6 +99,12 @@
   top: auto;
   flex-direction: column;
   flex-shrink: 0;
+}
+@media (min-width: 0px) and (max-width: 800px) {
+  .box__yhpMl {
+    width: 100%;
+    min-width: 0;
+  }
 }
 .box__zwHHh {
   display: flex;
@@ -191,13 +199,13 @@
   top: auto;
   height: 56px;
   min-width: 0;
+  flex-shrink: 0;
 }
 .storesRow {
   display: block;
   position: relative;
-  background-color: rgba(68, 192, 255, 0.2);
+  background-color: rgba(84, 255, 68, 0.85);
   width: 100%;
-  height: auto;
   min-width: 0;
 }
 .footerRow {
@@ -208,9 +216,9 @@
   height: 98px;
   left: auto;
   top: auto;
-  right: auto;
   bottom: auto;
   min-width: 0;
+  flex-shrink: 0;
 }
 .box__wyNpQ {
   display: flex;

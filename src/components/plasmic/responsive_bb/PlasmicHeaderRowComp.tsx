@@ -82,7 +82,27 @@ function PlasmicHeaderRowComp__RenderFunc(props: {
       data-plasmic-for-node={forNode}
       className={classNames(defaultcss.all, projectcss.root_reset, sty.root)}
     >
-      <div className={classNames(defaultcss.all, sty.box__pzqXj)} />
+      <div className={classNames(defaultcss.all, sty.box__pzqXj)}>
+        <div
+          className={classNames(
+            defaultcss.all,
+            defaultcss.__wab_text,
+            sty.box__do8Rx
+          )}
+        >
+          {"BRANDS"}
+        </div>
+
+        <div
+          className={classNames(
+            defaultcss.all,
+            defaultcss.__wab_text,
+            sty.box__dofYj
+          )}
+        >
+          {"BEATS"}
+        </div>
+      </div>
 
       <div
         data-plasmic-name={"headerSearch"}
