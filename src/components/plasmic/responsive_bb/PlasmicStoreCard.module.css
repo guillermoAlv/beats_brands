@@ -4,6 +4,12 @@
   height: 300px;
   position: relative;
 }
+@media (min-width: 0px) and (max-width: 800px) {
+  .root {
+    width: 290px;
+    height: 250px;
+  }
+}
 .box___49RXs {
   display: flex;
   position: absolute;
