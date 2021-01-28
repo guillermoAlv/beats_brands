@@ -85,6 +85,30 @@
           },
           "cssFilePath": "plasmic/responsive_bb/PlasmicStoreCard.module.css",
           "scheme": "blackbox"
+        },
+        {
+          "id": "HDfljj54Xp",
+          "name": "BrandCard",
+          "type": "managed",
+          "projectId": "wBcw9dcxKyU36yfsUviVdG",
+          "renderModuleFilePath": "plasmic/responsive_bb/PlasmicBrandCard.tsx",
+          "importSpec": {
+            "modulePath": "BrandCard.tsx"
+          },
+          "cssFilePath": "plasmic/responsive_bb/PlasmicBrandCard.module.css",
+          "scheme": "blackbox"
+        },
+        {
+          "id": "kdE_dd2jbPd",
+          "name": "SubscribePage",
+          "type": "managed",
+          "projectId": "wBcw9dcxKyU36yfsUviVdG",
+          "renderModuleFilePath": "plasmic/responsive_bb/PlasmicSubscribePage.tsx",
+          "importSpec": {
+            "modulePath": "SubscribePage.tsx"
+          },
+          "cssFilePath": "plasmic/responsive_bb/PlasmicSubscribePage.module.css",
+          "scheme": "blackbox"
         }
       ],
       "icons": [

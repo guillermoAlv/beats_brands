@@ -7,7 +7,8 @@ import {
 } from "./plasmic/responsive_bb/PlasmicMainPage";
 import RoutesDialog from "./RoutesDialog"
 import HeaderRowComp from "./HeaderRowComp"
-import StoreCard from "./StoreCard"
+//import StoreCard from "./StoreCard"
+import BrandCard from "./BrandCard"
 import {SearchBox} from 'react-instantsearch-dom';
 import algoliasearch from 'algoliasearch';
 import {
@@ -37,8 +38,20 @@ const searchClient = algoliasearch(
 
 function Hit(props: any) {
   //var url = new URL(props.hit.link)
-  //return (<StoreCard/> );
-  return <StoreCard/>
+  console.log(props.hit["tags propios"])
+  //let cat = props.hit["tags propios"].length < 20 ? props.hit["tags propios"] :  props.hit["tags propios"].split(",")[0]+"..."
+  //console.log(cat)
+  var cat = ""
+  if (Array.isArray(props.hit["tags propios"])){
+    cat = props.hit["tags propios"][0]
+  }else{
+    cat = props.hit["tags propios"]
+  }
+  cat = cat.length < 20 ? cat :  cat.split(",")[0]+"..."
+  return <BrandCard 
+    brandCardImage={<img style={{maxWidth: "100%", maxHeight: "100%"}} src={props.hit["Image Link"]}/>}
+    name={props.hit["title"]}
+    category={"#"+ cat}/>
 }
 
 const   Results = connectStateResults(({ searchState, searchResults, children }) =>
@@ -59,7 +72,7 @@ function MainPage(props: MainPageProps) {
                                         submit={<div/>}
                                         reset={<div/>}
                                         translations={{placeholder: 'Prendas, estilo, mujer, hombre ...'}}/>}/>}
-      storesResults={<Results/>} 
+      storesResults={<Results/>}
       heroRowSearchbox={<SearchBox
         submit={<div/>}
         reset={<div/>}
