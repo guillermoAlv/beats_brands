@@ -31,29 +31,31 @@ import {
 import "@plasmicapp/react-web/lib/plasmic.css";
 import defaultcss from "../plasmic__default_style.module.css"; // plasmic-import: global/defaultcss
 import projectcss from "./plasmic_responsive_bb.module.css"; // plasmic-import: wBcw9dcxKyU36yfsUviVdG/projectcss
-import sty from "./PlasmicStoreCard.module.css"; // plasmic-import: Px_8qz3kVB/css
+import sty from "./PlasmicSearchCard.module.css"; // plasmic-import: Px_8qz3kVB/css
 
-export type PlasmicStoreCard__VariantMembers = {};
-export type PlasmicStoreCard__VariantsArgs = {};
-type VariantPropType = keyof PlasmicStoreCard__VariantsArgs;
-export const PlasmicStoreCard__VariantProps = new Array<VariantPropType>();
+export type PlasmicSearchCard__VariantMembers = {};
+export type PlasmicSearchCard__VariantsArgs = {};
+type VariantPropType = keyof PlasmicSearchCard__VariantsArgs;
+export const PlasmicSearchCard__VariantProps = new Array<VariantPropType>();
 
-export type PlasmicStoreCard__ArgsType = {};
-type ArgPropType = keyof PlasmicStoreCard__ArgsType;
-export const PlasmicStoreCard__ArgProps = new Array<ArgPropType>();
+export type PlasmicSearchCard__ArgsType = {};
+type ArgPropType = keyof PlasmicSearchCard__ArgsType;
+export const PlasmicSearchCard__ArgProps = new Array<ArgPropType>();
 
-export type PlasmicStoreCard__OverridesType = {
+export type PlasmicSearchCard__OverridesType = {
   root?: p.Flex<"div">;
+  searchTerm?: p.Flex<"div">;
+  img?: p.Flex<"img">;
 };
 
-export interface DefaultStoreCardProps {
+export interface DefaultSearchCardProps {
   className?: string;
 }
 
-function PlasmicStoreCard__RenderFunc(props: {
-  variants: PlasmicStoreCard__VariantsArgs;
-  args: PlasmicStoreCard__ArgsType;
-  overrides: PlasmicStoreCard__OverridesType;
+function PlasmicSearchCard__RenderFunc(props: {
+  variants: PlasmicSearchCard__VariantsArgs;
+  args: PlasmicSearchCard__ArgsType;
+  overrides: PlasmicSearchCard__OverridesType;
   forNode?: string;
 }) {
   const { variants, args, overrides, forNode } = props;
@@ -67,16 +69,41 @@ function PlasmicStoreCard__RenderFunc(props: {
       className={classNames(defaultcss.all, projectcss.root_reset, sty.root)}
     >
       <div className={classNames(defaultcss.all, sty.box___49RXs)}>
-        <div className={classNames(defaultcss.all, sty.box___1XQq1)} />
+        <div className={classNames(defaultcss.all, sty.box___1XQq1)}>
+          <div
+            data-plasmic-name={"searchTerm"}
+            data-plasmic-override={overrides.searchTerm}
+            className={classNames(
+              defaultcss.all,
+              defaultcss.__wab_text,
+              sty.searchTerm
+            )}
+          >
+            {"Enter some text"}
+          </div>
+        </div>
 
-        <div className={classNames(defaultcss.all, sty.box__jj8Ym)} />
+        <div className={classNames(defaultcss.all, sty.box__jj8Ym)}>
+          <img
+            data-plasmic-name={"img"}
+            data-plasmic-override={overrides.img}
+            alt={""}
+            className={classNames(defaultcss.img, sty.img)}
+            role={"img"}
+            src={
+              "https://www.flaticon.com/svg/vstatic/svg/3159/3159614.svg?token=exp=1611915867~hmac=aa5692bda743d71fd7543aef801d21a5" as const
+            }
+          />
+        </div>
       </div>
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root"]
+  root: ["root", "searchTerm", "img"],
+  searchTerm: ["searchTerm"],
+  img: ["img"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<
@@ -84,23 +111,25 @@ type DescendantsType<
 > = typeof PlasmicDescendants[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  searchTerm: "div";
+  img: "img";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
 type NodeOverridesType<T extends NodeNameType> = Pick<
-  PlasmicStoreCard__OverridesType,
+  PlasmicSearchCard__OverridesType,
   DescendantsType<T>
 >;
 
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {
-    variants?: PlasmicStoreCard__VariantsArgs;
-    args?: PlasmicStoreCard__ArgsType;
+    variants?: PlasmicSearchCard__VariantsArgs;
+    args?: PlasmicSearchCard__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicStoreCard__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } & Omit<PlasmicSearchCard__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
     // Specify args directly as props
-    Omit<PlasmicStoreCard__ArgsType, ReservedPropsType> &
+    Omit<PlasmicSearchCard__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props
     Omit<
       NodeOverridesType<T>,
@@ -120,11 +149,11 @@ function makeNodeComponent<NodeName extends NodeNameType>(nodeName: NodeName) {
     const { variants, args, overrides } = deriveRenderOpts(props, {
       name: nodeName,
       descendantNames: [...PlasmicDescendants[nodeName]],
-      internalArgPropNames: PlasmicStoreCard__ArgProps,
-      internalVariantPropNames: PlasmicStoreCard__VariantProps
+      internalArgPropNames: PlasmicSearchCard__ArgProps,
+      internalVariantPropNames: PlasmicSearchCard__VariantProps
     });
 
-    return PlasmicStoreCard__RenderFunc({
+    return PlasmicSearchCard__RenderFunc({
       variants,
       args,
       overrides,
@@ -132,24 +161,26 @@ function makeNodeComponent<NodeName extends NodeNameType>(nodeName: NodeName) {
     });
   };
   if (nodeName === "root") {
-    func.displayName = "PlasmicStoreCard";
+    func.displayName = "PlasmicSearchCard";
   } else {
-    func.displayName = `PlasmicStoreCard.${nodeName}`;
+    func.displayName = `PlasmicSearchCard.${nodeName}`;
   }
   return func;
 }
 
-export const PlasmicStoreCard = Object.assign(
-  // Top-level PlasmicStoreCard renders the root element
+export const PlasmicSearchCard = Object.assign(
+  // Top-level PlasmicSearchCard renders the root element
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    searchTerm: makeNodeComponent("searchTerm"),
+    img: makeNodeComponent("img"),
 
-    // Metadata about props expected for PlasmicStoreCard
-    internalVariantProps: PlasmicStoreCard__VariantProps,
-    internalArgProps: PlasmicStoreCard__ArgProps
+    // Metadata about props expected for PlasmicSearchCard
+    internalVariantProps: PlasmicSearchCard__VariantProps,
+    internalArgProps: PlasmicSearchCard__ArgProps
   }
 );
 
-export default PlasmicStoreCard;
+export default PlasmicSearchCard;
 /* prettier-ignore-end */

@@ -7,7 +7,7 @@ import {
 } from "./plasmic/responsive_bb/PlasmicMainPage";
 import RoutesDialog from "./RoutesDialog"
 import HeaderRowComp from "./HeaderRowComp"
-//import StoreCard from "./StoreCard"
+import SearchCard from "./SearchCard"
 import BrandCard from "./BrandCard"
 import {SearchBox} from 'react-instantsearch-dom';
 import algoliasearch from 'algoliasearch';
@@ -37,6 +37,7 @@ const searchClient = algoliasearch(
 
 
 function Hit(props: any) {
+  console.log(props.hit["Image Link"])
   var cat = ""
   if (Array.isArray(props.hit["tags propios"])){
     cat = props.hit["tags propios"][0]
@@ -76,7 +77,7 @@ function MainPage(props: MainPageProps) {
   const [defaultSearch, setDefaultSearch] = React.useState("")
 
   const searchBox = <SearchBox submit={<div/>} reset={<div/>} defaultRefinement={defaultSearch} translations={{placeholder: 'Prendas, estilo, mujer, hombre ...'}}/>
-  const emptyCard = <div onClick={()=>setDefaultSearch("zapatos")}>Zapatos</div>
+  const emptyCard = <SearchCard searchTerm={"Zapatos"} onClick={()=>setDefaultSearch("zapatos")}/>
   console.log("DD")
   console.log(defaultSearch)
   return <InstantSearch searchClient={searchClient} indexName="dev_manu">

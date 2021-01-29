@@ -76,14 +76,14 @@
         },
         {
           "id": "Px_8qz3kVB",
-          "name": "StoreCard",
+          "name": "SearchCard",
           "type": "managed",
           "projectId": "wBcw9dcxKyU36yfsUviVdG",
-          "renderModuleFilePath": "plasmic/responsive_bb/PlasmicStoreCard.tsx",
+          "renderModuleFilePath": "plasmic/responsive_bb/PlasmicSearchCard.tsx",
           "importSpec": {
-            "modulePath": "StoreCard.tsx"
+            "modulePath": "SearchCard.tsx"
           },
-          "cssFilePath": "plasmic/responsive_bb/PlasmicStoreCard.module.css",
+          "cssFilePath": "plasmic/responsive_bb/PlasmicSearchCard.module.css",
           "scheme": "blackbox"
         },
         {

@@ -122,6 +122,7 @@ height: 100%;
 .ais-Hits-list{
   justify-content: space-evenly;
   display: flex;
+  padding: 0px
 }
 
   .ais-Hits-item {
