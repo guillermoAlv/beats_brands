@@ -45,7 +45,7 @@ function Hit(props: any) {
   }
   cat = cat.length < 20 ? cat :  cat.split(",")[0]+"..."
   return <BrandCard 
-    brandCardImage={<img style={{maxWidth: "100%", maxHeight: "100%"}} src={props.hit["Image Link"]}/>}
+    brandCardImage={<img alt="brand" style={{maxWidth: "100%", maxHeight: "100%"}} src={props.hit["Image Link"]}/>}
     name={props.hit["title"]}
     category={"#"+ cat}/>
 }
