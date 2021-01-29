@@ -56,9 +56,7 @@ ul{
 li{
   list-style-type: none;
 }
-.ais-Hits-item{
-  width: 32%;
-}
+
 .card{
   background-color: #f9f9f9;
   display: flex;
@@ -125,33 +123,6 @@ height: 100%;
   padding: 0px
 }
 
-  .ais-Hits-item {
-    /*box-shadow: 0 0 0 2pt red;*/
-    /*border-radius: 20px;*/
+.ais-Hits-item {
     margin: 10px;
 }
-@media (max-width: 700px) {
-  .ais-Hits-item {
-    width: 32%;
-    /*box-shadow: 0 0 0 2pt red;*/
-    /*border-radius: 20px;*/
-    margin: 10px;
-}
-}
-
-  @media (max-width: 600px) {
-    .ais-Hits-item {
-      width: 50%;
-      /*box-shadow: 0 0 0 2pt red;*/
-      /*border-radius: 20px;*/
-      margin: 10px;
-  }
-  }
-  @media (max-width: 400px) {
-    .ais-Hits-item {
-      width: 100%;
-      /* box-shadow: 0 0 0 2pt red;*/
-      /*border-radius: 20px;*/
-      margin: 10px;
-  }
-  }

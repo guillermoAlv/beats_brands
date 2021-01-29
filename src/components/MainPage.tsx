@@ -37,7 +37,6 @@ const searchClient = algoliasearch(
 
 
 function Hit(props: any) {
-  console.log(props.hit["Image Link"])
   var cat = ""
   if (Array.isArray(props.hit["tags propios"])){
     cat = props.hit["tags propios"][0]
@@ -51,24 +50,13 @@ function Hit(props: any) {
     category={"#"+ cat}/>
 }
 
-function connectedResult({ searchState, searchResults, children, ...rest }: any){
-  console.log("A")
-  console.log(searchState)
-  console.log("B")
-  console.log(searchResults)
-  console.log("C")
-  console.log(children)
-  console.log("D")
-  console.log(rest)
-  // Si no se ha introducido termino de busqueda
+function connectedResult(te: ()=>void, {searchState, searchResults, children}: any){
+  if(searchResults===null || searchResults["query"]===""){
+    return (<SearchCard searchTerm={"Zapatos"} onClick={te}/>)
+  }else{
     return (<div><Hits hitComponent={Hit} /></div>)
-  
- 
+  }
 }
-
-const   Results = connectStateResults(({ searchState, searchResults, children}) =>
-connectedResult({ searchState, searchResults, children,})
-);
 
 interface MainPageProps extends DefaultMainPageProps {}
 
@@ -77,8 +65,7 @@ function MainPage(props: MainPageProps) {
   const [defaultSearch, setDefaultSearch] = React.useState("")
 
   const searchBox = <SearchBox submit={<div/>} reset={<div/>} defaultRefinement={defaultSearch} translations={{placeholder: 'Prendas, estilo, mujer, hombre ...'}}/>
-  const emptyCard = <SearchCard searchTerm={"Zapatos"} onClick={()=>setDefaultSearch("zapatos")}/>
-  console.log("DD")
+  const  Results = connectStateResults(({ searchState, searchResults, children}) => {return connectedResult(()=>{setDefaultSearch("Zapatos")}, {searchState, searchResults, children})});
   console.log(defaultSearch)
   return <InstantSearch searchClient={searchClient} indexName="dev_manu">
     <PlasmicMainPage 
@@ -86,7 +73,7 @@ function MainPage(props: MainPageProps) {
       headerRowA={<HeaderRowComp 
                     expand={()=>updateRouteDialog(!isRouteDialogShowed)} 
                     headerSearchBox={searchBox}/>}
-      storesResults={defaultSearch===""?emptyCard:<Results/>}
+      storesResults={<Results/>}
       heroRowSearchbox={searchBox}
       {...props} />
   </InstantSearch>;
