@@ -37,10 +37,6 @@ const searchClient = algoliasearch(
 
 
 function Hit(props: any) {
-  //var url = new URL(props.hit.link)
-  console.log(props.hit["tags propios"])
-  //let cat = props.hit["tags propios"].length < 20 ? props.hit["tags propios"] :  props.hit["tags propios"].split(",")[0]+"..."
-  //console.log(cat)
   var cat = ""
   if (Array.isArray(props.hit["tags propios"])){
     cat = props.hit["tags propios"][0]
@@ -54,29 +50,43 @@ function Hit(props: any) {
     category={"#"+ cat}/>
 }
 
-const   Results = connectStateResults(({ searchState, searchResults, children }) =>
-<div><Hits hitComponent={Hit} /></div>
+function connectedResult({ searchState, searchResults, children, ...rest }: any){
+  console.log("A")
+  console.log(searchState)
+  console.log("B")
+  console.log(searchResults)
+  console.log("C")
+  console.log(children)
+  console.log("D")
+  console.log(rest)
+  // Si no se ha introducido termino de busqueda
+    return (<div><Hits hitComponent={Hit} /></div>)
+  
+ 
+}
+
+const   Results = connectStateResults(({ searchState, searchResults, children}) =>
+connectedResult({ searchState, searchResults, children,})
 );
 
 interface MainPageProps extends DefaultMainPageProps {}
 
 function MainPage(props: MainPageProps) {
   const [isRouteDialogShowed, updateRouteDialog] = React.useState(false)
+  const [defaultSearch, setDefaultSearch] = React.useState("")
 
+  const searchBox = <SearchBox submit={<div/>} reset={<div/>} defaultRefinement={defaultSearch} translations={{placeholder: 'Prendas, estilo, mujer, hombre ...'}}/>
+  const emptyCard = <div onClick={()=>setDefaultSearch("zapatos")}>Zapatos</div>
+  console.log("DD")
+  console.log(defaultSearch)
   return <InstantSearch searchClient={searchClient} indexName="dev_manu">
     <PlasmicMainPage 
       routesDi={isRouteDialogShowed ? <RoutesDialog/> : null} 
       headerRowA={<HeaderRowComp 
                     expand={()=>updateRouteDialog(!isRouteDialogShowed)} 
-                    headerSearchBox={<SearchBox
-                                        submit={<div/>}
-                                        reset={<div/>}
-                                        translations={{placeholder: 'Prendas, estilo, mujer, hombre ...'}}/>}/>}
-      storesResults={<Results/>}
-      heroRowSearchbox={<SearchBox
-        submit={<div/>}
-        reset={<div/>}
-        translations={{placeholder: 'Prendas, estilo, mujer, hombre ...'}}/>}
+                    headerSearchBox={searchBox}/>}
+      storesResults={defaultSearch===""?emptyCard:<Results/>}
+      heroRowSearchbox={searchBox}
       {...props} />
   </InstantSearch>;
 }
