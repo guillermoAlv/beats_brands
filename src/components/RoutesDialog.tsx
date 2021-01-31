@@ -39,10 +39,10 @@ function RoutesDialog(props: RoutesDialogProps) {
   // By default, we are just piping all RoutesDialogProps here, but feel free
   // to do whatever works for you.
   return <PlasmicRoutesDialog 
-    subscribeButton={<Link to="/subscribe"><DialogClickableText text={"Suscríbete"} isBold={true}/></Link>}
-    aboutusButton={<Link to="/subscribe"><DialogClickableText text={"Sobre nosotros"} isBold={true}/></Link>}
-    faqButton={<Link to="/subscribe"><DialogClickableText text={"FAQ"} isBold={true}/></Link>}
-    contactButton={<Link to="/subscribe"><DialogClickableText text={"Contacto"} isBold={true}/></Link>}
+    subscribeButton={<Link to="/subscribe"><DialogClickableText text={"Suscríbete"}/></Link>}
+    aboutusButton={<Link to="/subscribe"><DialogClickableText text={"Sobre nosotros"}/></Link>}
+    faqButton={<Link to="/subscribe"><DialogClickableText text={"FAQ"}/></Link>}
+    contactButton={<Link to="/subscribe"><DialogClickableText text={"Contacto"}/></Link>}
   {...props} />;
 }
 

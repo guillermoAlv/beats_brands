@@ -33,18 +33,10 @@ import defaultcss from "../plasmic__default_style.module.css"; // plasmic-import
 import projectcss from "./plasmic_responsive_bb.module.css"; // plasmic-import: wBcw9dcxKyU36yfsUviVdG/projectcss
 import sty from "./PlasmicDialogClickableText.module.css"; // plasmic-import: E4MwO2Nk-p/css
 
-export type PlasmicDialogClickableText__VariantMembers = {
-  isBold: "isBold";
-};
-
-export type PlasmicDialogClickableText__VariantsArgs = {
-  isBold?: SingleBooleanChoiceArg<"isBold">;
-};
-
+export type PlasmicDialogClickableText__VariantMembers = {};
+export type PlasmicDialogClickableText__VariantsArgs = {};
 type VariantPropType = keyof PlasmicDialogClickableText__VariantsArgs;
-export const PlasmicDialogClickableText__VariantProps = new Array<VariantPropType>(
-  "isBold"
-);
+export const PlasmicDialogClickableText__VariantProps = new Array<VariantPropType>();
 
 export type PlasmicDialogClickableText__ArgsType = {
   text?: React.ReactNode;
@@ -62,7 +54,6 @@ export type PlasmicDialogClickableText__OverridesType = {
 
 export interface DefaultDialogClickableTextProps {
   text?: React.ReactNode;
-  isBold?: SingleBooleanChoiceArg<"isBold">;
   className?: string;
 }
 
@@ -80,9 +71,7 @@ function PlasmicDialogClickableText__RenderFunc(props: {
       data-plasmic-override={overrides.root}
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
-      className={classNames(defaultcss.all, projectcss.root_reset, sty.root, {
-        [sty.root__isBold]: hasVariant(variants, "isBold", "isBold")
-      })}
+      className={classNames(defaultcss.all, projectcss.root_reset, sty.root)}
     >
       <div
         data-plasmic-name={"box"}
@@ -92,9 +81,7 @@ function PlasmicDialogClickableText__RenderFunc(props: {
         <p.PlasmicSlot
           defaultContents={"Button text"}
           value={args.text}
-          className={classNames(sty.slotText, {
-            [sty.slotText__isBold]: hasVariant(variants, "isBold", "isBold")
-          })}
+          className={classNames(sty.slotText)}
         />
       </div>
     </div>
