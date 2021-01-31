@@ -1,58 +1,24 @@
 .root {
   display: flex;
   width: 200px;
-  height: 300px;
+  height: auto;
   position: relative;
   background-color: rgb(0, 0, 0);
   flex-direction: column;
   justify-content: space-between;
+  align-items: flex-start;
   border-radius: 10px;
+  padding: 10px;
 }
-.link {
-  display: block;
+.dialogClickableText__wdXj:global(.__wab_instance) {
   position: relative;
-  background-color: rgba(68, 192, 255, 0.2);
-  width: 176px;
-  height: 41px;
-  flex-shrink: 0;
 }
-.box__jOby5 {
-  position: absolute;
-  width: 121px;
-  height: auto;
-  left: 19px;
-  top: 9px;
-  color: rgb(249, 240, 240);
-}
-.box___79MA {
-  display: block;
+.dialogClickableText__iyIIz:global(.__wab_instance) {
   position: relative;
-  background-color: rgba(68, 192, 255, 0.2);
-  width: 145px;
-  height: 38px;
-  flex-shrink: 0;
 }
-.box__qv0Xr {
-  position: absolute;
-  width: 106px;
-  height: 26px;
-  left: 18px;
-  top: 7.5px;
-  color: rgb(248, 244, 244);
-}
-.box__rpH5G {
-  display: block;
+.dialogClickableText__ffAkY:global(.__wab_instance) {
   position: relative;
-  background-color: rgba(68, 192, 255, 0.2);
-  width: 132px;
-  height: 34px;
-  flex-shrink: 0;
 }
-.box__elgE8 {
-  position: absolute;
-  width: 80px;
-  height: 29px;
-  left: 23px;
-  top: 1px;
-  color: rgb(248, 248, 248);
+.contact:global(.__wab_instance) {
+  position: relative;
 }

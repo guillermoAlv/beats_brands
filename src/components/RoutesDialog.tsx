@@ -5,6 +5,8 @@ import {
   PlasmicRoutesDialog,
   DefaultRoutesDialogProps
 } from "./plasmic/responsive_bb/PlasmicRoutesDialog";
+import {Link} from "react-router-dom"
+import DialogClickableText from "./DialogClickableText";
 
 // Your component props start with props for variants and slots you defined
 // in Plasmic, but you can add more here, like event handlers that you can
@@ -36,7 +38,12 @@ function RoutesDialog(props: RoutesDialogProps) {
   //
   // By default, we are just piping all RoutesDialogProps here, but feel free
   // to do whatever works for you.
-  return <PlasmicRoutesDialog {...props} />;
+  return <PlasmicRoutesDialog 
+    subscribeButton={<Link to="/subscribe"><DialogClickableText text={"Suscríbete"} isBold={true}/></Link>}
+    aboutusButton={<Link to="/subscribe"><DialogClickableText text={"Sobre nosotros"} isBold={true}/></Link>}
+    faqButton={<Link to="/subscribe"><DialogClickableText text={"FAQ"} isBold={true}/></Link>}
+    contactButton={<Link to="/subscribe"><DialogClickableText text={"Contacto"} isBold={true}/></Link>}
+  {...props} />;
 }
 
 export default RoutesDialog;

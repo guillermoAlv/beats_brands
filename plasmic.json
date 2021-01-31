@@ -121,6 +121,18 @@
           },
           "cssFilePath": "plasmic/responsive_bb/PlasmicHeaderClickableText.module.css",
           "scheme": "blackbox"
+        },
+        {
+          "id": "E4MwO2Nk-p",
+          "name": "DialogClickableText",
+          "type": "managed",
+          "projectId": "wBcw9dcxKyU36yfsUviVdG",
+          "renderModuleFilePath": "plasmic/responsive_bb/PlasmicDialogClickableText.tsx",
+          "importSpec": {
+            "modulePath": "DialogClickableText.tsx"
+          },
+          "cssFilePath": "plasmic/responsive_bb/PlasmicDialogClickableText.module.css",
+          "scheme": "blackbox"
         }
       ],
       "icons": [

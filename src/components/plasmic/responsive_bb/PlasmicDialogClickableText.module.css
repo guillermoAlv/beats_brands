@@ -1,0 +1,27 @@
+.root {
+  display: inline-flex;
+  width: auto;
+  height: auto;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 5px;
+}
+.box {
+  display: inline-flex;
+  position: relative;
+  width: auto;
+  height: auto;
+}
+.slotText {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgb(255, 255, 255);
+}
+.slotText__isBold {
+  font-weight: 700;
+}
+.root:hover .slotText {
+  color: rgb(0, 0, 0);
+}

@@ -27,6 +27,7 @@ import {
   deriveRenderOpts,
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
+import DialogClickableText from "../../DialogClickableText"; // plasmic-import: E4MwO2Nk-p/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 import defaultcss from "../plasmic__default_style.module.css"; // plasmic-import: global/defaultcss
@@ -38,16 +39,31 @@ export type PlasmicRoutesDialog__VariantsArgs = {};
 type VariantPropType = keyof PlasmicRoutesDialog__VariantsArgs;
 export const PlasmicRoutesDialog__VariantProps = new Array<VariantPropType>();
 
-export type PlasmicRoutesDialog__ArgsType = {};
+export type PlasmicRoutesDialog__ArgsType = {
+  subscribeButton?: React.ReactNode;
+  aboutusButton?: React.ReactNode;
+  faqButton?: React.ReactNode;
+  contactButton?: React.ReactNode;
+};
+
 type ArgPropType = keyof PlasmicRoutesDialog__ArgsType;
-export const PlasmicRoutesDialog__ArgProps = new Array<ArgPropType>();
+export const PlasmicRoutesDialog__ArgProps = new Array<ArgPropType>(
+  "subscribeButton",
+  "aboutusButton",
+  "faqButton",
+  "contactButton"
+);
 
 export type PlasmicRoutesDialog__OverridesType = {
   root?: p.Flex<"div">;
-  link?: p.Flex<"a">;
+  contact?: p.Flex<typeof DialogClickableText>;
 };
 
 export interface DefaultRoutesDialogProps {
+  subscribeButton?: React.ReactNode;
+  aboutusButton?: React.ReactNode;
+  faqButton?: React.ReactNode;
+  contactButton?: React.ReactNode;
   className?: string;
 }
 
@@ -67,53 +83,59 @@ function PlasmicRoutesDialog__RenderFunc(props: {
       data-plasmic-for-node={forNode}
       className={classNames(defaultcss.all, projectcss.root_reset, sty.root)}
     >
-      <a
-        data-plasmic-name={"link"}
-        data-plasmic-override={overrides.link}
-        className={classNames(defaultcss.all, sty.link)}
-        href={"subscribe" as const}
-      >
-        <div
-          className={classNames(
-            defaultcss.all,
-            defaultcss.__wab_text,
-            sty.box__jOby5
-          )}
-        >
-          {"Suscríbete"}
-        </div>
-      </a>
+      <p.PlasmicSlot
+        defaultContents={
+          <DialogClickableText
+            className={classNames(
+              "__wab_instance",
+              sty.dialogClickableText__wdXj
+            )}
+          />
+        }
+        value={args.subscribeButton}
+      />
 
-      <div className={classNames(defaultcss.all, sty.box___79MA)}>
-        <div
-          className={classNames(
-            defaultcss.all,
-            defaultcss.__wab_text,
-            sty.box__qv0Xr
-          )}
-        >
-          {"adios"}
-        </div>
-      </div>
+      <p.PlasmicSlot
+        defaultContents={
+          <DialogClickableText
+            className={classNames(
+              "__wab_instance",
+              sty.dialogClickableText__iyIIz
+            )}
+          />
+        }
+        value={args.aboutusButton}
+      />
 
-      <div className={classNames(defaultcss.all, sty.box__rpH5G)}>
-        <div
-          className={classNames(
-            defaultcss.all,
-            defaultcss.__wab_text,
-            sty.box__elgE8
-          )}
-        >
-          {"que tal"}
-        </div>
-      </div>
+      <p.PlasmicSlot
+        defaultContents={
+          <DialogClickableText
+            className={classNames(
+              "__wab_instance",
+              sty.dialogClickableText__ffAkY
+            )}
+          />
+        }
+        value={args.faqButton}
+      />
+
+      <p.PlasmicSlot
+        defaultContents={
+          <DialogClickableText
+            data-plasmic-name={"contact"}
+            data-plasmic-override={overrides.contact}
+            className={classNames("__wab_instance", sty.contact)}
+          />
+        }
+        value={args.contactButton}
+      />
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "link"],
-  link: ["link"]
+  root: ["root", "contact"],
+  contact: ["contact"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<
@@ -121,7 +143,7 @@ type DescendantsType<
 > = typeof PlasmicDescendants[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  link: "a";
+  contact: typeof DialogClickableText;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -182,7 +204,7 @@ export const PlasmicRoutesDialog = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    link: makeNodeComponent("link"),
+    contact: makeNodeComponent("contact"),
 
     // Metadata about props expected for PlasmicRoutesDialog
     internalVariantProps: PlasmicRoutesDialog__VariantProps,

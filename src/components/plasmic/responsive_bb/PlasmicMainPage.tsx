@@ -28,6 +28,7 @@ import {
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
 import RoutesDialog from "../../RoutesDialog"; // plasmic-import: DFJFHCaPCd/component
+import DialogClickableText from "../../DialogClickableText"; // plasmic-import: E4MwO2Nk-p/component
 
 import { ScreenContext, ScreenValue } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: E1isZEegCA11/globalVariant
 
