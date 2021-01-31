@@ -109,6 +109,18 @@
           },
           "cssFilePath": "plasmic/responsive_bb/PlasmicSubscribePage.module.css",
           "scheme": "blackbox"
+        },
+        {
+          "id": "yLOYoxRMwJ",
+          "name": "HeaderClickableText",
+          "type": "managed",
+          "projectId": "wBcw9dcxKyU36yfsUviVdG",
+          "renderModuleFilePath": "plasmic/responsive_bb/PlasmicHeaderClickableText.tsx",
+          "importSpec": {
+            "modulePath": "HeaderClickableText.tsx"
+          },
+          "cssFilePath": "plasmic/responsive_bb/PlasmicHeaderClickableText.module.css",
+          "scheme": "blackbox"
         }
       ],
       "icons": [

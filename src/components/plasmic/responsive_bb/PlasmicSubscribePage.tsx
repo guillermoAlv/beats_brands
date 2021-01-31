@@ -29,6 +29,8 @@ import {
 } from "@plasmicapp/react-web";
 import RoutesDialog from "../../RoutesDialog"; // plasmic-import: DFJFHCaPCd/component
 
+import { ScreenContext, ScreenValue } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: E1isZEegCA11/globalVariant
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 import defaultcss from "../plasmic__default_style.module.css"; // plasmic-import: global/defaultcss
 import projectcss from "./plasmic_responsive_bb.module.css"; // plasmic-import: wBcw9dcxKyU36yfsUviVdG/projectcss
@@ -54,8 +56,8 @@ export type PlasmicSubscribePage__OverridesType = {
   root?: p.Flex<"div">;
   headerRow?: p.Flex<"div">;
   heroRow?: p.Flex<"div">;
-  navRow?: p.Flex<"div">;
   storesRow?: p.Flex<"div">;
+  columns?: p.Flex<"div">;
   footerRow?: p.Flex<"div">;
   routesDialog?: p.Flex<typeof RoutesDialog>;
 };
@@ -73,6 +75,10 @@ function PlasmicSubscribePage__RenderFunc(props: {
   forNode?: string;
 }) {
   const { variants, args, overrides, forNode } = props;
+
+  const globalVariants = ensureGlobalVariants({
+    screen: React.useContext(ScreenContext)
+  });
 
   return (
     <div
@@ -100,45 +106,49 @@ function PlasmicSubscribePage__RenderFunc(props: {
         />
 
         <div
-          data-plasmic-name={"navRow"}
-          data-plasmic-override={overrides.navRow}
-          className={classNames(defaultcss.all, sty.navRow)}
-        />
-
-        <div
           data-plasmic-name={"storesRow"}
           data-plasmic-override={overrides.storesRow}
           className={classNames(defaultcss.all, sty.storesRow)}
         >
-          <div className={classNames(defaultcss.all, sty.box__iYxWg)}>
-            <div className={classNames(defaultcss.all, sty.box__ttex)}>
-              <div className={classNames(defaultcss.all, sty.box__xkOZz)}>
-                <div
-                  className={classNames(
-                    defaultcss.all,
-                    defaultcss.__wab_text,
-                    sty.box__q41R
-                  )}
-                >
-                  {"Recibe nuevas marcas en tu buzón"}
-                </div>
+          <p.Stack
+            as={"div"}
+            hasGap={true}
+            className={classNames(defaultcss.all, sty.box__iYxWg)}
+          >
+            <div className={classNames(defaultcss.all, sty.box__xkOZz)}>
+              <div
+                className={classNames(
+                  defaultcss.all,
+                  defaultcss.__wab_text,
+                  sty.box__q41R
+                )}
+              >
+                {"Recibe nuevas marcas en tu buzón"}
               </div>
+            </div>
 
-              <div className={classNames(defaultcss.all, sty.box___4CClO)}>
-                <div
-                  className={classNames(
-                    defaultcss.all,
-                    defaultcss.__wab_text,
-                    sty.box__kbjbc
-                  )}
-                >
-                  {
-                    "Nuestra newsletter incluye marcas que hacen cosas curiosas, utilizan materiales novedosos o innovan en la fabricación de sus productos"
-                  }
-                </div>
+            <div className={classNames(defaultcss.all, sty.box___4CClO)}>
+              <div
+                className={classNames(
+                  defaultcss.all,
+                  defaultcss.__wab_text,
+                  sty.box__kbjbc
+                )}
+              >
+                {
+                  "Nuestra newsletter incluye marcas que hacen cosas curiosas, utilizan materiales novedosos o innovan en la fabricación de sus productos"
+                }
               </div>
+            </div>
 
-              <div className={classNames(defaultcss.all, sty.box__vl29Y)}>
+            <p.Stack
+              as={"div"}
+              data-plasmic-name={"columns"}
+              data-plasmic-override={overrides.columns}
+              hasGap={true}
+              className={classNames(defaultcss.all, sty.columns)}
+            >
+              <div className={classNames(defaultcss.all, sty.column___6Yd2)}>
                 <div className={classNames(defaultcss.all, sty.box__aToF4)}>
                   <div
                     className={classNames(
@@ -150,7 +160,9 @@ function PlasmicSubscribePage__RenderFunc(props: {
                     {"Escribe tu email"}
                   </div>
                 </div>
+              </div>
 
+              <div className={classNames(defaultcss.all, sty.column___16AF)}>
                 <div className={classNames(defaultcss.all, sty.box__pUhZx)}>
                   <div
                     className={classNames(
@@ -163,8 +175,8 @@ function PlasmicSubscribePage__RenderFunc(props: {
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
+            </p.Stack>
+          </p.Stack>
         </div>
 
         <div
@@ -174,20 +186,18 @@ function PlasmicSubscribePage__RenderFunc(props: {
         />
       </div>
 
-      {false ? (
-        <div className={classNames(defaultcss.all, sty.box__xpoU8)}>
-          <p.PlasmicSlot
-            defaultContents={
-              <RoutesDialog
-                data-plasmic-name={"routesDialog"}
-                data-plasmic-override={overrides.routesDialog}
-                className={classNames("__wab_instance", sty.routesDialog)}
-              />
-            }
-            value={args.routesDi}
-          />
-        </div>
-      ) : null}
+      <div className={classNames(defaultcss.all, sty.box__xpoU8)}>
+        <p.PlasmicSlot
+          defaultContents={
+            <RoutesDialog
+              data-plasmic-name={"routesDialog"}
+              data-plasmic-override={overrides.routesDialog}
+              className={classNames("__wab_instance", sty.routesDialog)}
+            />
+          }
+          value={args.routesDi}
+        />
+      </div>
     </div>
   ) as React.ReactElement | null;
 }
@@ -197,16 +207,16 @@ const PlasmicDescendants = {
     "root",
     "headerRow",
     "heroRow",
-    "navRow",
     "storesRow",
+    "columns",
     "footerRow",
     "routesDialog"
   ],
 
   headerRow: ["headerRow"],
   heroRow: ["heroRow"],
-  navRow: ["navRow"],
-  storesRow: ["storesRow"],
+  storesRow: ["storesRow", "columns"],
+  columns: ["columns"],
   footerRow: ["footerRow"],
   routesDialog: ["routesDialog"]
 } as const;
@@ -218,8 +228,8 @@ type NodeDefaultElementType = {
   root: "div";
   headerRow: "div";
   heroRow: "div";
-  navRow: "div";
   storesRow: "div";
+  columns: "div";
   footerRow: "div";
   routesDialog: typeof RoutesDialog;
 };
@@ -284,8 +294,8 @@ export const PlasmicSubscribePage = Object.assign(
     // Helper components rendering sub-elements
     headerRow: makeNodeComponent("headerRow"),
     heroRow: makeNodeComponent("heroRow"),
-    navRow: makeNodeComponent("navRow"),
     storesRow: makeNodeComponent("storesRow"),
+    columns: makeNodeComponent("columns"),
     footerRow: makeNodeComponent("footerRow"),
     routesDialog: makeNodeComponent("routesDialog"),
 

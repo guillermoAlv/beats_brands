@@ -5,7 +5,19 @@ import {
   PlasmicSubscribePage,
   DefaultSubscribePageProps
 } from "./plasmic/responsive_bb/PlasmicSubscribePage";
-
+import HeaderRowComp from "./HeaderRowComp"
+import {SearchBox} from 'react-instantsearch-dom';
+import {Link} from "react-router-dom"
+import HeaderClickableText from './HeaderClickableText'
+import algoliasearch from 'algoliasearch';
+import {
+  InstantSearch
+} from 'react-instantsearch-dom';
+import RoutesDialog from "./RoutesDialog"
+const searchClient = algoliasearch(
+  'E5ACT1VI4D',
+  '58c5723bb97942db9b754bf244b1da75'
+);
 // Your component props start with props for variants and slots you defined
 // in Plasmic, but you can add more here, like event handlers that you can
 // attach to named nodes in your component.
@@ -22,21 +34,21 @@ import {
 interface SubscribePageProps extends DefaultSubscribePageProps {}
 
 function SubscribePage(props: SubscribePageProps) {
-  // Use PlasmicSubscribePage to render this component as it was
-  // designed in Plasmic, by activating the appropriate variants,
-  // attaching the appropriate event handlers, etc.  You
-  // can also install whatever React hooks you need here to manage state or
-  // fetch data.
-  //
-  // Props you can pass into PlasmicSubscribePage are:
-  // 1. Variants you want to activate,
-  // 2. Contents for slots you want to fill,
-  // 3. Overrides for any named node in the component to attach behavior and data,
-  // 4. Props to set on the root node.
-  //
-  // By default, we are just piping all SubscribePageProps here, but feel free
-  // to do whatever works for you.
-  return <PlasmicSubscribePage {...props} />;
+  const [isRouteDialogShowed, updateRouteDialog] = React.useState(false)
+  console.log(isRouteDialogShowed)
+  const searchBox = <SearchBox submit={<div/>} reset={<div/>} translations={{placeholder: 'Prendas, estilo, mujer, hombre ...'}}/>
+  return <InstantSearch searchClient={searchClient} indexName="dev_manu">
+  <PlasmicSubscribePage 
+    routesDi={isRouteDialogShowed ? <RoutesDialog/> : null} 
+    headerRowA={<HeaderRowComp 
+      expand={()=>updateRouteDialog(!isRouteDialogShowed)}
+      headerSearchBox={<Link to="/" style={{ width: '100%' }}>{searchBox}</Link>}
+      subscribeButton={<Link to="/subscribe"><HeaderClickableText text={"Suscríbete"} isBold={true}/></Link>}
+      aboutusButton={<HeaderClickableText text={"Sobre nosotros"} isBold={false}/>}
+      faqButton={<HeaderClickableText text={"FAQ"} isBold={false}/>}
+      contactButton={<HeaderClickableText text={"Contacto"} isBold={false}/>}
+    />}
+    {...props} /></InstantSearch>;
 }
 
 export default SubscribePage;

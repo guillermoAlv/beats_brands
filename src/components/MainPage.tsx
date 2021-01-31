@@ -16,6 +16,8 @@ import {
   connectStateResults,
   Hits
 } from 'react-instantsearch-dom';
+import HeaderClickableText from './HeaderClickableText'
+import {Link} from "react-router-dom"
 // Your component props start with props for variants and slots you defined
 // in Plasmic, but you can add more here, like event handlers that you can
 // attach to named nodes in your component.
@@ -72,7 +74,13 @@ function MainPage(props: MainPageProps) {
       routesDi={isRouteDialogShowed ? <RoutesDialog/> : null} 
       headerRowA={<HeaderRowComp 
                     expand={()=>updateRouteDialog(!isRouteDialogShowed)} 
-                    headerSearchBox={searchBox}/>}
+                    headerSearchBox={searchBox}
+                    subscribeButton={<Link to="/subscribe"><HeaderClickableText text={"Suscríbete"} isBold={true}/></Link>}
+                    aboutusButton={<HeaderClickableText text={"Sobre nosotros"} isBold={false}/>}
+                    faqButton={<HeaderClickableText text={"FAQ"} isBold={false}/>}
+                    contactButton={<HeaderClickableText text={"Contacto"} isBold={false}/>}
+                    />}
+
       storesResults={<Results/>}
       heroRowSearchbox={searchBox}
       {...props} />

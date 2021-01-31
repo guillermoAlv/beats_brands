@@ -27,6 +27,7 @@ import {
   deriveRenderOpts,
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
+import HeaderClickableText from "../../HeaderClickableText"; // plasmic-import: yLOYoxRMwJ/component
 import ExpandRoutesButton from "../../ExpandRoutesButton"; // plasmic-import: Ra6hYxqoFV/component
 
 import { ScreenContext, ScreenValue } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: E1isZEegCA11/globalVariant
@@ -43,11 +44,19 @@ export const PlasmicHeaderRowComp__VariantProps = new Array<VariantPropType>();
 
 export type PlasmicHeaderRowComp__ArgsType = {
   headerSearchBox?: React.ReactNode;
+  subscribeButton?: React.ReactNode;
+  aboutusButton?: React.ReactNode;
+  faqButton?: React.ReactNode;
+  contactButton?: React.ReactNode;
 };
 
 type ArgPropType = keyof PlasmicHeaderRowComp__ArgsType;
 export const PlasmicHeaderRowComp__ArgProps = new Array<ArgPropType>(
-  "headerSearchBox"
+  "headerSearchBox",
+  "subscribeButton",
+  "aboutusButton",
+  "faqButton",
+  "contactButton"
 );
 
 export type PlasmicHeaderRowComp__OverridesType = {
@@ -59,6 +68,10 @@ export type PlasmicHeaderRowComp__OverridesType = {
 
 export interface DefaultHeaderRowCompProps {
   headerSearchBox?: React.ReactNode;
+  subscribeButton?: React.ReactNode;
+  aboutusButton?: React.ReactNode;
+  faqButton?: React.ReactNode;
+  contactButton?: React.ReactNode;
   className?: string;
 }
 
@@ -120,29 +133,30 @@ function PlasmicHeaderRowComp__RenderFunc(props: {
           data-plasmic-override={overrides.routes}
           className={classNames(defaultcss.all, sty.routes)}
         >
-          <div className={classNames(defaultcss.all, sty.box__djDwo)}>
-            <div
-              className={classNames(
-                defaultcss.all,
-                defaultcss.__wab_text,
-                sty.box___2W9Uf
-              )}
-            >
-              {"Subscribete"}
-            </div>
-          </div>
+          <p.PlasmicSlot
+            defaultContents={
+              <HeaderClickableText
+                className={classNames(
+                  "__wab_instance",
+                  sty.headerClickableText__yMiCo
+                )}
+              />
+            }
+            value={args.subscribeButton}
+          />
 
-          <div className={classNames(defaultcss.all, sty.box__wkTzp)}>
-            <div
-              className={classNames(
-                defaultcss.all,
-                defaultcss.__wab_text,
-                sty.box__tf3OB
-              )}
-            >
-              {"Sobre nosotros"}
-            </div>
-          </div>
+          <p.PlasmicSlot
+            defaultContents={
+              <HeaderClickableText
+                className={classNames(
+                  "__wab_instance",
+                  sty.headerClickableText__rOkeF
+                )}
+                text={"Button text"}
+              />
+            }
+            value={args.aboutusButton}
+          />
 
           <div className={classNames(defaultcss.all, sty.box__bhy5Y)}>
             <div
@@ -156,29 +170,31 @@ function PlasmicHeaderRowComp__RenderFunc(props: {
             </div>
           </div>
 
-          <div className={classNames(defaultcss.all, sty.box__pIeq)}>
-            <div
-              className={classNames(
-                defaultcss.all,
-                defaultcss.__wab_text,
-                sty.box__rYyz
-              )}
-            >
-              {"FAQ"}
-            </div>
-          </div>
+          <p.PlasmicSlot
+            defaultContents={
+              <HeaderClickableText
+                className={classNames(
+                  "__wab_instance",
+                  sty.headerClickableText__qV9A
+                )}
+                text={"Button text"}
+              />
+            }
+            value={args.faqButton}
+          />
 
-          <div className={classNames(defaultcss.all, sty.box__oVvlF)}>
-            <div
-              className={classNames(
-                defaultcss.all,
-                defaultcss.__wab_text,
-                sty.box__n7MgT
-              )}
-            >
-              {"Contacto"}
-            </div>
-          </div>
+          <p.PlasmicSlot
+            defaultContents={
+              <HeaderClickableText
+                className={classNames(
+                  "__wab_instance",
+                  sty.headerClickableText__zqke4
+                )}
+                text={"Button text"}
+              />
+            }
+            value={args.contactButton}
+          />
         </div>
       ) : null}
       {(hasVariant(globalVariants, "screen", "mobile") ? true : false) ? (

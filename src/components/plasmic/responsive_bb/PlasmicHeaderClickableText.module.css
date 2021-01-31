@@ -1,0 +1,28 @@
+.root {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+}
+.box {
+  display: inline-flex;
+  position: relative;
+  width: auto;
+  height: auto;
+}
+.slotText {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgb(148, 148, 148);
+}
+.slotText__isBold {
+  font-weight: 700;
+}
+.root:hover .slotText {
+  color: rgb(0, 0, 0);
+}

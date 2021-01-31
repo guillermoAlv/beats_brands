@@ -4,6 +4,8 @@
   height: 100%;
   position: relative;
   background-color: #ffffff;
+  min-width: 0;
+  min-height: 0;
 }
 .box__mkTi7 {
   display: flex;
@@ -11,8 +13,13 @@
   background-color: rgba(68, 192, 255, 0.2);
   width: 100%;
   height: 100%;
+  left: auto;
+  top: auto;
   flex-direction: column;
   align-content: flex-start;
+  overflow: visible;
+  min-width: 0;
+  min-height: 0;
 }
 .headerRow {
   display: block;
@@ -20,13 +27,21 @@
   background-color: rgba(89, 255, 68, 0.2);
   width: 100%;
   height: 60px;
+  left: auto;
+  top: auto;
+  min-width: 0;
   flex-shrink: 0;
 }
 .box__dwAp {
   display: flex;
   position: relative;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
   width: 100%;
   height: 100%;
+  min-width: 0;
+  min-height: 0;
 }
 .heroRow {
   display: block;
@@ -35,6 +50,7 @@
   width: 100%;
   height: 600px;
   background-image: url("./images/clarkVanDerBekenTk0B3Dfkf4Unsplash21Jpg.jpeg");
+  min-width: 0;
   flex-shrink: 0;
 }
 @media (min-width: 0px) and (max-width: 800px) {
@@ -50,15 +66,22 @@
   position: absolute;
   width: 100%;
   height: 100%;
+  left: auto;
+  top: auto;
   flex-direction: column;
+  min-width: 0;
+  min-height: 0;
 }
 .box__wxYiO {
   display: flex;
   position: relative;
   width: 100%;
   height: 100%;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
+  min-width: 0;
+  min-height: 0;
 }
 @media (min-width: 0px) and (max-width: 800px) {
   .box__wxYiO {
@@ -72,6 +95,8 @@
   position: relative;
   width: 558px;
   height: 234px;
+  left: auto;
+  top: auto;
   flex-direction: column;
   flex-shrink: 0;
 }
@@ -86,10 +111,20 @@
   position: relative;
   width: 100%;
   height: 100%;
+  left: auto;
+  top: auto;
+  flex-direction: row;
+  justify-content: flex-start;
   align-items: center;
+  min-width: 0;
+  min-height: 0;
 }
 .box__uWCb8 {
   position: relative;
+  width: auto;
+  height: auto;
+  left: auto;
+  top: auto;
   font-weight: 700;
   color: rgb(255, 255, 255);
   font-size: 46px;
@@ -101,15 +136,20 @@
   position: relative;
   width: 100%;
   height: 100%;
+  left: auto;
+  top: auto;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+  min-width: 0;
+  min-height: 0;
 }
 .box__qNHt {
   position: relative;
   font-size: 18px;
   color: rgb(255, 255, 255);
   width: 100%;
+  min-width: 0;
 }
 @media (min-width: 0px) and (max-width: 800px) {
   .box__qNHt {
@@ -121,16 +161,25 @@
 .box__agl9X {
   position: relative;
   width: 100%;
+  height: auto;
+  left: auto;
+  top: auto;
   color: rgb(255, 255, 255);
   font-family: "Muli";
   font-size: 18px;
+  min-width: 0;
 }
 .box__qb4W9 {
   display: flex;
   position: relative;
   width: 100%;
   height: 100%;
+  left: auto;
+  top: auto;
+  flex-direction: row;
   align-items: center;
+  min-width: 0;
+  min-height: 0;
 }
 .box__j8AK {
   display: block;
@@ -138,6 +187,9 @@
   background-color: rgb(255, 255, 255);
   width: 100%;
   height: 40px;
+  left: auto;
+  top: auto;
+  min-width: 0;
   border-radius: 20px;
 }
 .navRow {
@@ -145,7 +197,10 @@
   position: relative;
   background-color: rgba(249, 249, 249, 0.62);
   width: 100%;
+  left: auto;
+  top: auto;
   height: 56px;
+  min-width: 0;
   flex-shrink: 0;
 }
 .storesRow {
@@ -153,8 +208,10 @@
   position: relative;
   background-color: rgb(249, 249, 249);
   width: 100%;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
+  min-width: 0;
 }
 .footerRow {
   display: block;
@@ -162,6 +219,10 @@
   background-color: rgb(29, 178, 189);
   width: 100%;
   height: 98px;
+  left: auto;
+  top: auto;
+  bottom: auto;
+  min-width: 0;
   flex-shrink: 0;
 }
 .box__wyNpQ {
@@ -172,5 +233,9 @@
 }
 .routesDialog:global(.__wab_instance) {
   position: relative;
+  left: auto;
+  top: auto;
+  right: auto;
+  bottom: auto;
   flex-shrink: 0;
 }

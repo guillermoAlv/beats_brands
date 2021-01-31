@@ -8,7 +8,7 @@
   justify-content: space-between;
   border-radius: 10px;
 }
-.box__xmMeg {
+.link {
   display: block;
   position: relative;
   background-color: rgba(68, 192, 255, 0.2);
@@ -19,7 +19,7 @@
 .box__jOby5 {
   position: absolute;
   width: 121px;
-  height: 20px;
+  height: auto;
   left: 19px;
   top: 9px;
   color: rgb(249, 240, 240);

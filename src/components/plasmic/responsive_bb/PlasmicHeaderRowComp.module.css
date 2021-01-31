@@ -4,6 +4,8 @@
   height: 100%;
   position: relative;
   background-color: rgb(255, 255, 255);
+  min-width: 0;
+  min-height: 0;
 }
 @media (min-width: 0px) and (max-width: 800px) {
   .root {
@@ -21,6 +23,7 @@
   padding-top: 5px;
   padding-bottom: 5px;
   flex-shrink: 0;
+  min-height: 0;
 }
 @media (min-width: 0px) and (max-width: 800px) {
   .box__pzqXj {
@@ -30,6 +33,8 @@
 }
 .box__do8Rx {
   position: relative;
+  width: auto;
+  height: auto;
   align-self: center;
   font-weight: 700;
   font-size: 24px;
@@ -43,6 +48,8 @@
 }
 .box__dofYj {
   position: relative;
+  width: auto;
+  height: auto;
   align-self: center;
   font-weight: 700;
   font-size: 24px;
@@ -59,9 +66,12 @@
   position: relative;
   width: 100%;
   height: 100%;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   background-color: rgb(255, 255, 255);
+  min-width: 0;
+  min-height: 0;
   padding: 12px;
 }
 .box__ps6AM {
@@ -70,6 +80,11 @@
   background-color: rgb(216, 216, 216);
   width: 100%;
   height: 100%;
+  left: auto;
+  top: auto;
+  flex-direction: row;
+  min-width: 0;
+  min-height: 0;
   border-radius: 20px;
 }
 .routes {
@@ -77,45 +92,33 @@
   position: relative;
   width: 600px;
   height: 100%;
+  flex-direction: row;
   flex-shrink: 0;
+  min-height: 0;
 }
-.box__djDwo {
-  display: flex;
+.headerClickableText__yMiCo:global(.__wab_instance) {
   position: relative;
-  width: 100%;
-  height: 100%;
-  align-items: center;
-  justify-content: center;
 }
-.box___2W9Uf {
+.headerClickableText__rOkeF:global(.__wab_instance) {
   position: relative;
-  font-size: 14px;
-  font-weight: 700;
-  display: inline-block;
-}
-.box__wkTzp {
-  display: flex;
-  position: relative;
-  width: 100%;
-  height: 100%;
-  justify-content: center;
-  align-items: center;
-}
-.box__tf3OB {
-  position: relative;
-  font-size: 14px;
-  display: inline-block;
 }
 .box__bhy5Y {
   display: flex;
   position: relative;
   width: 100%;
   height: 100%;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
+  min-width: 0;
+  min-height: 0;
 }
 .box__rMtrX {
   position: relative;
+  width: auto;
+  height: auto;
+  left: auto;
+  top: auto;
   font-size: 14px;
   font-weight: 700;
   display: inline-block;
@@ -124,31 +127,11 @@
   border-width: 1px;
   border-style: solid;
 }
-.box__pIeq {
-  display: flex;
+.headerClickableText__qV9A:global(.__wab_instance) {
   position: relative;
-  width: 100%;
-  height: 100%;
-  justify-content: center;
-  align-items: center;
 }
-.box__rYyz {
+.headerClickableText__zqke4:global(.__wab_instance) {
   position: relative;
-  font-size: 14px;
-  display: inline-block;
-}
-.box__oVvlF {
-  display: flex;
-  position: relative;
-  width: 100%;
-  height: 100%;
-  justify-content: center;
-  align-items: center;
-}
-.box__n7MgT {
-  position: relative;
-  font-size: 14px;
-  display: inline-block;
 }
 .expandRoutesButton:global(.__wab_instance) {
   position: relative;
