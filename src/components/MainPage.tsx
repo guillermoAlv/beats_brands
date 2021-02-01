@@ -71,7 +71,7 @@ function MainPage(props: MainPageProps) {
   console.log(defaultSearch)
   return <InstantSearch searchClient={searchClient} indexName="dev_manu">
     <PlasmicMainPage 
-      routesDi={isRouteDialogShowed ? <RoutesDialog/> : null} 
+      routesDi={isRouteDialogShowed ? <RoutesDialog changeVisible={()=>updateRouteDialog(!isRouteDialogShowed)}/> : null} 
       headerRowA={<HeaderRowComp 
                     expand={()=>updateRouteDialog(!isRouteDialogShowed)} 
                     headerSearchBox={searchBox}

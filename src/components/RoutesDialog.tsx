@@ -21,29 +21,33 @@ import DialogClickableText from "./DialogClickableText";
 //
 // You can also stop extending from DefaultRoutesDialogProps altogether and have
 // total control over the props for your component.
-interface RoutesDialogProps extends DefaultRoutesDialogProps {}
+interface RoutesDialogProps extends DefaultRoutesDialogProps {
+  changeVisible: ()=>void
+}
 
-function RoutesDialog(props: RoutesDialogProps) {
-  // Use PlasmicRoutesDialog to render this component as it was
-  // designed in Plasmic, by activating the appropriate variants,
-  // attaching the appropriate event handlers, etc.  You
-  // can also install whatever React hooks you need here to manage state or
-  // fetch data.
-  //
-  // Props you can pass into PlasmicRoutesDialog are:
-  // 1. Variants you want to activate,
-  // 2. Contents for slots you want to fill,
-  // 3. Overrides for any named node in the component to attach behavior and data,
-  // 4. Props to set on the root node.
-  //
-  // By default, we are just piping all RoutesDialogProps here, but feel free
-  // to do whatever works for you.
-  return <PlasmicRoutesDialog 
-    subscribeButton={<Link to="/subscribe"><DialogClickableText text={"Suscríbete"}/></Link>}
-    aboutusButton={<Link to="/subscribe"><DialogClickableText text={"Sobre nosotros"}/></Link>}
-    faqButton={<Link to="/subscribe"><DialogClickableText text={"FAQ"}/></Link>}
-    contactButton={<Link to="/subscribe"><DialogClickableText text={"Contacto"}/></Link>}
-  {...props} />;
+function RoutesDialog({changeVisible, ...props}: RoutesDialogProps) {
+  const node = React.useRef<any>();
+  React.useEffect(() => {
+    function handleClick(e:  MouseEvent): void{
+      if (node.current.contains(e.target)) {
+        return;
+      }
+      changeVisible()
+    };
+    // add when mounted
+    document.addEventListener("mousedown", handleClick);
+    // return function to be called when unmounted
+    return () => {
+      document.removeEventListener("mousedown", handleClick);
+    };
+  });
+
+  return (<div ref={node}><PlasmicRoutesDialog 
+    subscribeButton={<Link style={{width: "100%"}} to="/subscribe"><DialogClickableText text={"Suscríbete"}/></Link>}
+    aboutusButton={<Link style={{width: "100%"}} to="/subscribe"><DialogClickableText text={"Sobre nosotros"}/></Link>}
+    faqButton={<Link style={{width: "100%"}} to="/subscribe"><DialogClickableText text={"FAQ"}/></Link>}
+    contactButton={<Link style={{width: "100%"}} to="/subscribe"><DialogClickableText text={"Contacto"}/></Link>}
+  {...props} /></div>)
 }
 
 export default RoutesDialog;

@@ -39,7 +39,7 @@ function SubscribePage(props: SubscribePageProps) {
   const searchBox = <SearchBox submit={<div/>} reset={<div/>} translations={{placeholder: 'Prendas, estilo, mujer, hombre ...'}}/>
   return <InstantSearch searchClient={searchClient} indexName="dev_manu">
   <PlasmicSubscribePage 
-    routesDi={isRouteDialogShowed ? <RoutesDialog/> : null} 
+    routesDi={isRouteDialogShowed ? <RoutesDialog changeVisible={()=>updateRouteDialog(!isRouteDialogShowed)}/> : null} 
     headerRowA={<HeaderRowComp 
       expand={()=>updateRouteDialog(!isRouteDialogShowed)}
       headerSearchBox={<Link to="/" style={{ width: '100%' }}>{searchBox}</Link>}

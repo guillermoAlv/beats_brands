@@ -68,11 +68,13 @@ function PlasmicExpandRoutesButton__RenderFunc(props: {
   });
 
   return ((hasVariant(globalVariants, "screen", "mobile") ? true : false) ? (
-    <div
+    <p.Stack
+      as={"div"}
       data-plasmic-name={"root"}
       data-plasmic-override={overrides.root}
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
+      hasGap={hasVariant(globalVariants, "screen", "mobile") ? true : false}
       className={classNames(defaultcss.all, projectcss.root_reset, sty.root)}
     >
       {(hasVariant(globalVariants, "screen", "mobile") ? true : false) ? (
@@ -83,7 +85,7 @@ function PlasmicExpandRoutesButton__RenderFunc(props: {
           role={"img"}
         />
       ) : null}
-    </div>
+    </p.Stack>
   ) : null) as React.ReactElement | null;
 }
 
