@@ -33,6 +33,8 @@ import defaultcss from "../plasmic__default_style.module.css"; // plasmic-import
 import projectcss from "./plasmic_responsive_bb.module.css"; // plasmic-import: wBcw9dcxKyU36yfsUviVdG/projectcss
 import sty from "./PlasmicSearchCard.module.css"; // plasmic-import: Px_8qz3kVB/css
 
+import HangersvgIcon from "./icons/PlasmicIcon__Hangersvg"; // plasmic-import: fezaFbqFB/icon
+
 export type PlasmicSearchCard__VariantMembers = {};
 export type PlasmicSearchCard__VariantsArgs = {};
 type VariantPropType = keyof PlasmicSearchCard__VariantsArgs;
@@ -45,7 +47,7 @@ export const PlasmicSearchCard__ArgProps = new Array<ArgPropType>();
 export type PlasmicSearchCard__OverridesType = {
   root?: p.Flex<"div">;
   searchTerm?: p.Flex<"div">;
-  img?: p.Flex<"img">;
+  svg?: p.Flex<"svg">;
 };
 
 export interface DefaultSearchCardProps {
@@ -84,15 +86,11 @@ function PlasmicSearchCard__RenderFunc(props: {
         </div>
 
         <div className={classNames(defaultcss.all, sty.box__jj8Ym)}>
-          <img
-            data-plasmic-name={"img"}
-            data-plasmic-override={overrides.img}
-            alt={""}
-            className={classNames(defaultcss.img, sty.img)}
+          <HangersvgIcon
+            data-plasmic-name={"svg"}
+            data-plasmic-override={overrides.svg}
+            className={classNames(defaultcss.all, sty.svg)}
             role={"img"}
-            src={
-              "https://www.flaticon.com/svg/vstatic/svg/3159/3159614.svg?token=exp=1611915867~hmac=aa5692bda743d71fd7543aef801d21a5" as const
-            }
           />
         </div>
       </div>
@@ -101,9 +99,9 @@ function PlasmicSearchCard__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "searchTerm", "img"],
+  root: ["root", "searchTerm", "svg"],
   searchTerm: ["searchTerm"],
-  img: ["img"]
+  svg: ["svg"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<
@@ -112,7 +110,7 @@ type DescendantsType<
 type NodeDefaultElementType = {
   root: "div";
   searchTerm: "div";
-  img: "img";
+  svg: "svg";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -174,7 +172,7 @@ export const PlasmicSearchCard = Object.assign(
   {
     // Helper components rendering sub-elements
     searchTerm: makeNodeComponent("searchTerm"),
-    img: makeNodeComponent("img"),
+    svg: makeNodeComponent("svg"),
 
     // Metadata about props expected for PlasmicSearchCard
     internalVariantProps: PlasmicSearchCard__VariantProps,

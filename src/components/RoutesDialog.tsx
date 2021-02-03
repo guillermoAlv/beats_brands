@@ -22,14 +22,16 @@ import DialogClickableText from "./DialogClickableText";
 // You can also stop extending from DefaultRoutesDialogProps altogether and have
 // total control over the props for your component.
 interface RoutesDialogProps extends DefaultRoutesDialogProps {
-  changeVisible: ()=>void
+  changeVisible: ()=>void,
+  menuButtonRef: React.MutableRefObject<any>
 }
 
-function RoutesDialog({changeVisible, ...props}: RoutesDialogProps) {
+function RoutesDialog({changeVisible, menuButtonRef,...props}: RoutesDialogProps) {
   const node = React.useRef<any>();
   React.useEffect(() => {
     function handleClick(e:  MouseEvent): void{
-      if (node.current.contains(e.target)) {
+      console.log(menuButtonRef)
+      if (node.current.contains(e.target) || menuButtonRef.current.contains(e.target)) {
         return;
       }
       changeVisible()

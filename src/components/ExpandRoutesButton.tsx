@@ -20,10 +20,11 @@ import {
 // You can also stop extending from DefaultExpandRoutesButtonProps altogether and have
 // total control over the props for your component.
 interface ExpandRoutesButtonProps extends DefaultExpandRoutesButtonProps {
-  expand: ()=> void
+  expand: ()=> void,
+  menuButtonRef: React.MutableRefObject<any>
 }
 
-function ExpandRoutesButton({expand, ...props}: ExpandRoutesButtonProps) {
+function ExpandRoutesButton({expand, menuButtonRef, ...props}: ExpandRoutesButtonProps) {
   // Use PlasmicExpandRoutesButton to render this component as it was
   // designed in Plasmic, by activating the appropriate variants,
   // attaching the appropriate event handlers, etc.  You
@@ -38,7 +39,7 @@ function ExpandRoutesButton({expand, ...props}: ExpandRoutesButtonProps) {
   //
   // By default, we are just piping all ExpandRoutesButtonProps here, but feel free
   // to do whatever works for you.
-  return <PlasmicExpandRoutesButton onClick={expand} {...props} />;
+  return (<div ref={menuButtonRef}><PlasmicExpandRoutesButton onClick={expand} {...props} /></div>)
 }
 
-export default ExpandRoutesButton;
+export default React.forwardRef(ExpandRoutesButton);

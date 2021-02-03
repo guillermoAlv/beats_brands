@@ -5,19 +5,13 @@ import {
   PlasmicMainPage,
   DefaultMainPageProps
 } from "./plasmic/responsive_bb/PlasmicMainPage";
-import RoutesDialog from "./RoutesDialog"
-import HeaderRowComp from "./HeaderRowComp"
 import SearchCard from "./SearchCard"
 import BrandCard from "./BrandCard"
-import {SearchBox} from 'react-instantsearch-dom';
-import algoliasearch from 'algoliasearch';
+import CustomSearchBox from './CustomSearchBox';
 import {
-  InstantSearch,
   connectStateResults,
   Hits
 } from 'react-instantsearch-dom';
-import HeaderClickableText from './HeaderClickableText'
-import {Link} from "react-router-dom"
 // Your component props start with props for variants and slots you defined
 // in Plasmic, but you can add more here, like event handlers that you can
 // attach to named nodes in your component.
@@ -31,13 +25,6 @@ import {Link} from "react-router-dom"
 //
 // You can also stop extending from DefaultMainPageProps altogether and have
 // total control over the props for your component.
-
-const searchClient = algoliasearch(
-  'E5ACT1VI4D',
-  '58c5723bb97942db9b754bf244b1da75'
-);
-
-
 function Hit(props: any) {
   var cat = ""
   if (Array.isArray(props.hit["tags propios"])){
@@ -52,7 +39,7 @@ function Hit(props: any) {
     category={"#"+ cat}/>
 }
 
-function connectedResult(te: ()=>void, {searchState, searchResults, children}: any){
+function connectedResult(te: (searchTerm: string)=>void, {searchState, searchResults, children}: any){
   if(searchResults===null || searchResults["query"]===""){
     return (<SearchCard searchTerm={"Zapatos"} onClick={te}/>)
   }else{
@@ -60,31 +47,22 @@ function connectedResult(te: ()=>void, {searchState, searchResults, children}: a
   }
 }
 
-interface MainPageProps extends DefaultMainPageProps {}
+interface MainPageProps extends DefaultMainPageProps {
+  searchMethod:(searchTerm: string)=>void,
+  searchTerm:string
+}
 
-function MainPage(props: MainPageProps) {
-  const [isRouteDialogShowed, updateRouteDialog] = React.useState(false)
-  const [defaultSearch, setDefaultSearch] = React.useState("")
-
-  const searchBox = <SearchBox submit={<div/>} reset={<div/>} defaultRefinement={defaultSearch} translations={{placeholder: 'Prendas, estilo, mujer, hombre ...'}}/>
-  const  Results = connectStateResults(({ searchState, searchResults, children}) => {return connectedResult(()=>{setDefaultSearch("Zapatos")}, {searchState, searchResults, children})});
-  console.log(defaultSearch)
-  return <InstantSearch searchClient={searchClient} indexName="dev_manu">
-    <PlasmicMainPage 
-      routesDi={isRouteDialogShowed ? <RoutesDialog changeVisible={()=>updateRouteDialog(!isRouteDialogShowed)}/> : null} 
-      headerRowA={<HeaderRowComp 
-                    expand={()=>updateRouteDialog(!isRouteDialogShowed)} 
-                    headerSearchBox={searchBox}
-                    subscribeButton={<Link to="/subscribe"><HeaderClickableText text={"Suscríbete"} isBold={true}/></Link>}
-                    aboutusButton={<HeaderClickableText text={"Sobre nosotros"} isBold={false}/>}
-                    faqButton={<HeaderClickableText text={"FAQ"} isBold={false}/>}
-                    contactButton={<HeaderClickableText text={"Contacto"} isBold={false}/>}
-                    />}
-
-      storesResults={<Results/>}
-      heroRowSearchbox={searchBox}
-      {...props} />
-  </InstantSearch>;
+function MainPage({searchMethod,searchTerm, ...props}: MainPageProps) {
+  const  Results = connectStateResults(({ searchState, searchResults, children}) => {return connectedResult(searchMethod, {searchState, searchResults, children})});
+  return (
+        <PlasmicMainPage 
+          routesDi={null} 
+          storesResults={<Results/>}
+          heroRowSearchbox={<CustomSearchBox defaultSearch={searchTerm}/>}
+          {...props} />);
 }
 
 export default MainPage;
+
+
+

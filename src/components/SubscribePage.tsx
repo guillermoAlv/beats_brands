@@ -35,12 +35,13 @@ interface SubscribePageProps extends DefaultSubscribePageProps {}
 
 function SubscribePage(props: SubscribePageProps) {
   const [isRouteDialogShowed, updateRouteDialog] = React.useState(false)
+  const node = React.useRef<any>();
   console.log(isRouteDialogShowed)
   const searchBox = <SearchBox submit={<div/>} reset={<div/>} translations={{placeholder: 'Prendas, estilo, mujer, hombre ...'}}/>
   return <InstantSearch searchClient={searchClient} indexName="dev_manu">
   <PlasmicSubscribePage 
-    routesDi={isRouteDialogShowed ? <RoutesDialog changeVisible={()=>updateRouteDialog(!isRouteDialogShowed)}/> : null} 
-    headerRowA={<HeaderRowComp 
+    routesDi={isRouteDialogShowed ? <RoutesDialog changeVisible={()=>updateRouteDialog(!isRouteDialogShowed) } menuButtonRef={node} /> : null} 
+    headerRowA={<HeaderRowComp menuButtonRef={node}
       expand={()=>updateRouteDialog(!isRouteDialogShowed)}
       headerSearchBox={<Link to="/" style={{ width: '100%' }}>{searchBox}</Link>}
       subscribeButton={<Link to="/subscribe"><HeaderClickableText text={"Suscríbete"} isBold={true}/></Link>}

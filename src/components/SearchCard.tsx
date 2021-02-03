@@ -21,7 +21,7 @@ import {
 // total control over the props for your component.
 interface SearchCardProps extends DefaultSearchCardProps {
   searchTerm: string,
-  onClick: ()=>void
+  onClick: (searchTerm: string)=>void
 }
 
 function SearchCard({searchTerm, onClick, ...props}: SearchCardProps) {
@@ -39,7 +39,7 @@ function SearchCard({searchTerm, onClick, ...props}: SearchCardProps) {
   //
   // By default, we are just piping all BrandCardProps here, but feel free
   // to do whatever works for you.
-  return <PlasmicSearchCard searchTerm={searchTerm} onClick={onClick} {...props} />;
+  return <PlasmicSearchCard searchTerm={searchTerm} onClick={()=>onClick(searchTerm)} {...props} />;
 }
 
 export default SearchCard;

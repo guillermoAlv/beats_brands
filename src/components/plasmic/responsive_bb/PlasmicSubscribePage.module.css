@@ -278,14 +278,13 @@
 .box__xpoU8 {
   display: flex;
   position: absolute;
-  top: 80px;
-  right: 10px;
+  top: 100px;
+  right: 17px;
+  flex-direction: row;
 }
 .routesDialog:global(.__wab_instance) {
   position: relative;
   left: auto;
   top: auto;
-  right: auto;
-  bottom: auto;
   flex-shrink: 0;
 }

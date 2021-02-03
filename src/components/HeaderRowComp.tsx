@@ -22,10 +22,11 @@ import ExpandRoutesButton from "./ExpandRoutesButton"
 // You can also stop extending from DefaultHeaderRowCompProps altogether and have
 // total control over the props for your component.
 interface HeaderRowCompProps extends DefaultHeaderRowCompProps {
-  expand: ()=>void
+  expand: ()=>void,
+  menuButtonRef: React.MutableRefObject<any>
 }
 
-function HeaderRowComp({expand, ...props}: HeaderRowCompProps) {
+function HeaderRowComp({expand, menuButtonRef, ...props}: HeaderRowCompProps) {
   // Use PlasmicHeaderRowComp to render this component as it was
   // designed in Plasmic, by activating the appropriate variants,
   // attaching the appropriate event handlers, etc.  You
@@ -41,7 +42,7 @@ function HeaderRowComp({expand, ...props}: HeaderRowCompProps) {
   // By default, we are just piping all HeaderRowCompProps here, but feel free
   // to do whatever works for you.
   //return <PlasmicHeaderRowComp expandRoutesButton={isRouteDialogShowed ? <ExpandRoutesButton expand={()=>console.log("Bye Bye")}/> : null} {...props} />;
-  return <PlasmicHeaderRowComp expandRoutesButton={<ExpandRoutesButton expand={expand}/>} {...props} />;
+  return <PlasmicHeaderRowComp expandRoutesButton={<ExpandRoutesButton menuButtonRef={menuButtonRef} expand={expand}/>} {...props} />;
 }
 
 export default HeaderRowComp;

@@ -57,9 +57,10 @@
   min-width: 0;
   min-height: 0;
 }
-.img {
+.svg {
   position: relative;
   object-fit: cover;
-  width: 150px;
+  width: 156px;
+  height: 123px;
   flex-shrink: 0;
 }

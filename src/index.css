@@ -42,6 +42,7 @@ input{
 }
 .ais-SearchBox-submit{
   visibility: hidden;
+  display: none
 }
 .ais-SearchBox-reset{
   display: none

@@ -145,6 +145,11 @@
           "id": "qYjXe9EXdM",
           "name": "FavoriteBlack18Dpsvg2Icon",
           "moduleFilePath": "plasmic/responsive_bb/icons/PlasmicIcon__FavoriteBlack18Dpsvg2.tsx"
+        },
+        {
+          "id": "fezaFbqFB",
+          "name": "HangersvgIcon",
+          "moduleFilePath": "plasmic/responsive_bb/icons/PlasmicIcon__Hangersvg.tsx"
         }
       ],
       "images": [

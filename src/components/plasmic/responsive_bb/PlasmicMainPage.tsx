@@ -44,7 +44,6 @@ export const PlasmicMainPage__VariantProps = new Array<VariantPropType>();
 
 export type PlasmicMainPage__ArgsType = {
   routesDi?: React.ReactNode;
-  headerRowA?: React.ReactNode;
   storesResults?: React.ReactNode;
   heroRowSearchbox?: React.ReactNode;
 };
@@ -52,14 +51,12 @@ export type PlasmicMainPage__ArgsType = {
 type ArgPropType = keyof PlasmicMainPage__ArgsType;
 export const PlasmicMainPage__ArgProps = new Array<ArgPropType>(
   "routesDi",
-  "headerRowA",
   "storesResults",
   "heroRowSearchbox"
 );
 
 export type PlasmicMainPage__OverridesType = {
   root?: p.Flex<"div">;
-  headerRow?: p.Flex<"div">;
   heroRow?: p.Flex<"div">;
   navRow?: p.Flex<"div">;
   storesRow?: p.Flex<"div">;
@@ -69,7 +66,6 @@ export type PlasmicMainPage__OverridesType = {
 
 export interface DefaultMainPageProps {
   routesDi?: React.ReactNode;
-  headerRowA?: React.ReactNode;
   storesResults?: React.ReactNode;
   heroRowSearchbox?: React.ReactNode;
   className?: string;
@@ -96,16 +92,6 @@ function PlasmicMainPage__RenderFunc(props: {
       className={classNames(defaultcss.all, projectcss.root_reset, sty.root)}
     >
       <div className={classNames(defaultcss.all, sty.box__mkTi7)}>
-        <div
-          data-plasmic-name={"headerRow"}
-          data-plasmic-override={overrides.headerRow}
-          className={classNames(defaultcss.all, sty.headerRow)}
-        >
-          <div className={classNames(defaultcss.all, sty.box__dwAp)}>
-            <p.PlasmicSlot defaultContents={null} value={args.headerRowA} />
-          </div>
-        </div>
-
         <div
           data-plasmic-name={"heroRow"}
           data-plasmic-override={overrides.heroRow}
@@ -203,17 +189,7 @@ function PlasmicMainPage__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: [
-    "root",
-    "headerRow",
-    "heroRow",
-    "navRow",
-    "storesRow",
-    "footerRow",
-    "routesDialog"
-  ],
-
-  headerRow: ["headerRow"],
+  root: ["root", "heroRow", "navRow", "storesRow", "footerRow", "routesDialog"],
   heroRow: ["heroRow"],
   navRow: ["navRow"],
   storesRow: ["storesRow"],
@@ -226,7 +202,6 @@ type DescendantsType<
 > = typeof PlasmicDescendants[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  headerRow: "div";
   heroRow: "div";
   navRow: "div";
   storesRow: "div";
@@ -292,7 +267,6 @@ export const PlasmicMainPage = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    headerRow: makeNodeComponent("headerRow"),
     heroRow: makeNodeComponent("heroRow"),
     navRow: makeNodeComponent("navRow"),
     storesRow: makeNodeComponent("storesRow"),
