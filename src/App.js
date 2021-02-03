@@ -3,7 +3,6 @@ import FullMainPage from "./components/FullMainPage";
 import SubscribePage from "./components/SubscribePage";
 import {ScreenVariantProvider} from "./components/plasmic/responsive_bb/PlasmicGlobalVariant__Screen";
 import {BrowserRouter, Switch, Route} from "react-router-dom"
-import { StickyContainer, Sticky } from 'react-sticky';
 
 function App() {
   return (
