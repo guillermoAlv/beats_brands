@@ -27,8 +27,6 @@ import {
   deriveRenderOpts,
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
-import RoutesDialog from "../../RoutesDialog"; // plasmic-import: DFJFHCaPCd/component
-import DialogClickableText from "../../DialogClickableText"; // plasmic-import: E4MwO2Nk-p/component
 
 import { ScreenContext, ScreenValue } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: E1isZEegCA11/globalVariant
 
@@ -43,14 +41,12 @@ type VariantPropType = keyof PlasmicMainPage__VariantsArgs;
 export const PlasmicMainPage__VariantProps = new Array<VariantPropType>();
 
 export type PlasmicMainPage__ArgsType = {
-  routesDi?: React.ReactNode;
   storesResults?: React.ReactNode;
   heroRowSearchbox?: React.ReactNode;
 };
 
 type ArgPropType = keyof PlasmicMainPage__ArgsType;
 export const PlasmicMainPage__ArgProps = new Array<ArgPropType>(
-  "routesDi",
   "storesResults",
   "heroRowSearchbox"
 );
@@ -61,11 +57,9 @@ export type PlasmicMainPage__OverridesType = {
   navRow?: p.Flex<"div">;
   storesRow?: p.Flex<"div">;
   footerRow?: p.Flex<"div">;
-  routesDialog?: p.Flex<typeof RoutesDialog>;
 };
 
 export interface DefaultMainPageProps {
-  routesDi?: React.ReactNode;
   storesResults?: React.ReactNode;
   heroRowSearchbox?: React.ReactNode;
   className?: string;
@@ -97,56 +91,54 @@ function PlasmicMainPage__RenderFunc(props: {
           data-plasmic-override={overrides.heroRow}
           className={classNames(defaultcss.all, sty.heroRow)}
         >
-          <div className={classNames(defaultcss.all, sty.box__s4Ue0)}>
-            <div className={classNames(defaultcss.all, sty.box__wxYiO)}>
-              <div className={classNames(defaultcss.all, sty.box__yhpMl)}>
-                <div className={classNames(defaultcss.all, sty.box__zwHHh)}>
-                  <div
-                    className={classNames(
-                      defaultcss.all,
-                      defaultcss.__wab_text,
-                      sty.box__uWCb8
-                    )}
-                  >
-                    {"Brands Beats"}
-                  </div>
+          <div className={classNames(defaultcss.all, sty.box__wxYiO)}>
+            <div className={classNames(defaultcss.all, sty.box__yhpMl)}>
+              <div className={classNames(defaultcss.all, sty.box__zwHHh)}>
+                <div
+                  className={classNames(
+                    defaultcss.all,
+                    defaultcss.__wab_text,
+                    sty.box__uWCb8
+                  )}
+                >
+                  {"Brands Beats"}
                 </div>
-
-                <div className={classNames(defaultcss.all, sty.box__ftse8)}>
-                  <div
-                    className={classNames(
-                      defaultcss.all,
-                      defaultcss.__wab_text,
-                      sty.box__qNHt
-                    )}
-                  >
-                    {"Todos los ecommerce independientes de España y Portugal"}
-                  </div>
-
-                  <div
-                    className={classNames(
-                      defaultcss.all,
-                      defaultcss.__wab_text,
-                      sty.box__agl9X
-                    )}
-                  >
-                    {"Encuentra las marcas que cambian el mundo"}
-                  </div>
-                </div>
-
-                {(
-                  hasVariant(globalVariants, "screen", "mobile") ? false : true
-                ) ? (
-                  <div className={classNames(defaultcss.all, sty.box__qb4W9)}>
-                    <div className={classNames(defaultcss.all, sty.box__j8AK)}>
-                      <p.PlasmicSlot
-                        defaultContents={null}
-                        value={args.heroRowSearchbox}
-                      />
-                    </div>
-                  </div>
-                ) : null}
               </div>
+
+              <div className={classNames(defaultcss.all, sty.box__ftse8)}>
+                <div
+                  className={classNames(
+                    defaultcss.all,
+                    defaultcss.__wab_text,
+                    sty.box__qNHt
+                  )}
+                >
+                  {"Todos los ecommerce independientes de España y Portugal"}
+                </div>
+
+                <div
+                  className={classNames(
+                    defaultcss.all,
+                    defaultcss.__wab_text,
+                    sty.box__agl9X
+                  )}
+                >
+                  {"Encuentra las marcas que cambian el mundo"}
+                </div>
+              </div>
+
+              {(
+                hasVariant(globalVariants, "screen", "mobile") ? false : true
+              ) ? (
+                <div className={classNames(defaultcss.all, sty.box__qb4W9)}>
+                  <div className={classNames(defaultcss.all, sty.box__j8AK)}>
+                    <p.PlasmicSlot
+                      defaultContents={null}
+                      value={args.heroRowSearchbox}
+                    />
+                  </div>
+                </div>
+              ) : null}
             </div>
           </div>
         </div>
@@ -171,30 +163,16 @@ function PlasmicMainPage__RenderFunc(props: {
           className={classNames(defaultcss.all, sty.footerRow)}
         />
       </div>
-
-      <div className={classNames(defaultcss.all, sty.box__wyNpQ)}>
-        <p.PlasmicSlot
-          defaultContents={
-            <RoutesDialog
-              data-plasmic-name={"routesDialog"}
-              data-plasmic-override={overrides.routesDialog}
-              className={classNames("__wab_instance", sty.routesDialog)}
-            />
-          }
-          value={args.routesDi}
-        />
-      </div>
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "heroRow", "navRow", "storesRow", "footerRow", "routesDialog"],
+  root: ["root", "heroRow", "navRow", "storesRow", "footerRow"],
   heroRow: ["heroRow"],
   navRow: ["navRow"],
   storesRow: ["storesRow"],
-  footerRow: ["footerRow"],
-  routesDialog: ["routesDialog"]
+  footerRow: ["footerRow"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<
@@ -206,7 +184,6 @@ type NodeDefaultElementType = {
   navRow: "div";
   storesRow: "div";
   footerRow: "div";
-  routesDialog: typeof RoutesDialog;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -271,7 +248,6 @@ export const PlasmicMainPage = Object.assign(
     navRow: makeNodeComponent("navRow"),
     storesRow: makeNodeComponent("storesRow"),
     footerRow: makeNodeComponent("footerRow"),
-    routesDialog: makeNodeComponent("routesDialog"),
 
     // Metadata about props expected for PlasmicMainPage
     internalVariantProps: PlasmicMainPage__VariantProps,

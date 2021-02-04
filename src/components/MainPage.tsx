@@ -55,14 +55,10 @@ interface MainPageProps extends DefaultMainPageProps {
 function MainPage({searchMethod,searchTerm, ...props}: MainPageProps) {
   const  Results = connectStateResults(({ searchState, searchResults, children}) => {return connectedResult(searchMethod, {searchState, searchResults, children})});
   return (
-        <PlasmicMainPage 
-          routesDi={null} 
+        <PlasmicMainPage
           storesResults={<Results/>}
           heroRowSearchbox={<CustomSearchBox defaultSearch={searchTerm}/>}
           {...props} />);
 }
 
 export default MainPage;
-
-
-

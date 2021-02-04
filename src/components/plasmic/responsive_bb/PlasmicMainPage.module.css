@@ -1,32 +1,41 @@
 .root {
-  display: block;
+  display: flex;
   width: 100%;
   height: 100%;
   position: relative;
   background-color: #ffffff;
+  flex-direction: column;
   min-width: 0;
   min-height: 0;
 }
 .box__mkTi7 {
   display: flex;
-  position: absolute;
-  background-color: rgba(68, 192, 255, 0.2);
+  position: relative;
   width: 100%;
-  height: auto;
+  height: 100%;
   left: auto;
   top: auto;
   flex-direction: column;
   align-content: flex-start;
   overflow: visible;
+  justify-content: flex-start;
+  margin-top: 75px;
   min-width: 0;
+  min-height: 0;
+}
+@media (min-width: 0px) and (max-width: 800px) {
+  .box__mkTi7 {
+    margin-top: 64px;
+  }
 }
 .heroRow {
-  display: block;
+  display: flex;
   position: relative;
   background-color: rgba(255, 255, 68, 0.2);
   width: 100%;
-  height: 600px;
+  height: 500px;
   background-image: url("./images/clarkVanDerBekenTk0B3Dfkf4Unsplash21Jpg.jpeg");
+  flex-direction: column;
   min-width: 0;
   flex-shrink: 0;
 }
@@ -38,17 +47,6 @@
     flex-shrink: 0;
   }
 }
-.box__s4Ue0 {
-  display: flex;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: auto;
-  top: auto;
-  flex-direction: column;
-  min-width: 0;
-  min-height: 0;
-}
 .box__wxYiO {
   display: flex;
   position: relative;
@@ -57,6 +55,8 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  left: auto;
+  top: auto;
   min-width: 0;
   min-height: 0;
 }
@@ -177,6 +177,7 @@
   left: auto;
   top: auto;
   height: 56px;
+  flex-direction: row;
   min-width: 0;
   flex-shrink: 0;
 }
@@ -188,7 +189,9 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  height: 100%;
   min-width: 0;
+  min-height: 0;
 }
 .footerRow {
   display: block;
@@ -200,19 +203,5 @@
   top: auto;
   bottom: auto;
   min-width: 0;
-  flex-shrink: 0;
-}
-.box__wyNpQ {
-  display: flex;
-  position: absolute;
-  top: 9px;
-  right: 17px;
-}
-.routesDialog:global(.__wab_instance) {
-  position: relative;
-  left: auto;
-  top: auto;
-  right: auto;
-  bottom: auto;
   flex-shrink: 0;
 }
