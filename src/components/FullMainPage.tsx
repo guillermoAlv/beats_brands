@@ -19,7 +19,7 @@ function FullMainPage() {
     const node = React.useRef<any>();
     console.log(isRouteDialogShowed)
     return <div style={{width:"100%"}}><InstantSearch searchClient={searchClient} indexName="dev_manu">
-        <div style={{width: "100%", position: "fixed",top: "0px",zIndex: 1}}>
+        <div style={{width: "100%", position: "fixed", top: "0px", zIndex: 1}}>
         <HeaderRowComp menuButtonRef={node}
               expand={()=>{updateRouteDialog(!isRouteDialogShowed)}} 
               headerSearchBox={<CustomSearchBox defaultSearch={defaultSearch}/>}
