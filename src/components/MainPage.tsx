@@ -27,16 +27,15 @@ import {
 // total control over the props for your component.
 function Hit(props: any) {
   var cat = ""
-  if (Array.isArray(props.hit["tags propios"])){
-    cat = props.hit["tags propios"][0]
+  if (Array.isArray(props.hit["tags"])){
+    cat = props.hit["tags"][0]
   }else{
-    cat = props.hit["tags propios"]
+    cat = props.hit["tags"]
   }
-  cat = cat.length < 20 ? cat :  cat.split(",")[0]+"..."
-  return <BrandCard 
-    brandCardImage={<img alt="brand" style={{maxWidth: "100%", maxHeight: "100%"}} src={props.hit["Image Link"]}/>}
-    name={props.hit["title"]}
-    category={"#"+ cat}/>
+  return <a href={props.hit["url"]} target="_blank" rel="noreferrer"><BrandCard 
+    brandCardImage={<img alt="brand" style={{maxWidth: "100%"}} src={props.hit["url_site_image"]}/>}
+    name={props.hit["name"]}
+    category={"#"+ cat}/></a>
 }
 
 function connectedResult(te: (searchTerm: string)=>void, {searchState, searchResults, children}: any){
