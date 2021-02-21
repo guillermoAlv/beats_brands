@@ -3,49 +3,27 @@
 /* tslint:disable */
 /* prettier-ignore-start */
 import * as React from "react";
+import * as p from "@plasmicapp/react-web";
 export type ScreenValue = "mobile";
 export const ScreenContext = React.createContext<ScreenValue[] | undefined>(
   "PLEASE_RENDER_INSIDE_PROVIDER" as any
 );
 
-const screenVariants: ScreenValue[] = ["mobile"];
-const screenQueries = ["(min-width:0px) and (max-width:800px)"];
-
-function matchScreenVariants() {
-  const matching: ScreenValue[] = [];
-  if (!globalThis.matchMedia) {
-    return matching;
-  }
-  for (let i = 0; i < screenQueries.length; i++) {
-    if (globalThis.matchMedia(screenQueries[i]).matches) {
-      matching.push(screenVariants[i]);
-    }
-  }
-  return matching;
-}
-
-export function ScreenVariantProvider(props: { children?: React.ReactNode }) {
-  const [value, setValue] = React.useState<ScreenValue[]>([]);
-  React.useEffect(() => {
-    const handler = () => {
-      const newValues = matchScreenVariants();
-      if (
-        newValues.length !== value.length ||
-        newValues.some((v) => !value.includes(v))
-      ) {
-        setValue(newValues);
-      }
-    };
-    handler();
-    window.addEventListener("resize", handler);
-    return () => window.removeEventListener("resize", handler);
-  }, [value]);
-  return (
-    <ScreenContext.Provider value={value}>
-      {props.children}
-    </ScreenContext.Provider>
+/**
+ *  @deprecated Plasmic now uses a custom hook for Screen variants, which is
+ *  automatically included in your components. Please remove this provider
+ *  from your code.
+ */
+export function ScreenVariantProvider(props: React.PropsWithChildren) {
+  console.warn(
+    "DEPRECATED: Plasmic now uses a custom hook for Screen variants, which is automatically included in your components. Please remove this provider from your code."
   );
+  return props.children;
 }
+
+export const useScreenVariants = p.createUseScreenVariants(true, {
+  mobile: "(min-width:0px) and (max-width:800px)",
+});
 
 export default ScreenContext;
 /* prettier-ignore-end */

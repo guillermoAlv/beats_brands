@@ -28,7 +28,7 @@ import {
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
 
-import { ScreenContext, ScreenValue } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: E1isZEegCA11/globalVariant
+import { useScreenVariants } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: E1isZEegCA11/globalVariant
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 import defaultcss from "../plasmic__default_style.module.css"; // plasmic-import: global/defaultcss
@@ -38,6 +38,7 @@ import sty from "./PlasmicExpandRoutesButton.module.css"; // plasmic-import: Ra6
 import FavoriteBlack18Dpsvg2Icon from "./icons/PlasmicIcon__FavoriteBlack18Dpsvg2"; // plasmic-import: qYjXe9EXdM/icon
 
 export type PlasmicExpandRoutesButton__VariantMembers = {};
+
 export type PlasmicExpandRoutesButton__VariantsArgs = {};
 type VariantPropType = keyof PlasmicExpandRoutesButton__VariantsArgs;
 export const PlasmicExpandRoutesButton__VariantProps = new Array<VariantPropType>();
@@ -64,7 +65,7 @@ function PlasmicExpandRoutesButton__RenderFunc(props: {
   const { variants, args, overrides, forNode } = props;
 
   const globalVariants = ensureGlobalVariants({
-    screen: React.useContext(ScreenContext)
+    screen: useScreenVariants()
   });
 
   return ((hasVariant(globalVariants, "screen", "mobile") ? true : false) ? (
@@ -107,26 +108,23 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicExpandRoutesButton__OverridesType,
   DescendantsType<T>
 >;
-
-type NodeComponentProps<T extends NodeNameType> =
-  // Explicitly specify variants, args, and overrides as objects
-  {
-    variants?: PlasmicExpandRoutesButton__VariantsArgs;
-    args?: PlasmicExpandRoutesButton__ArgsType;
-    overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicExpandRoutesButton__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    // Specify args directly as props
-    Omit<PlasmicExpandRoutesButton__ArgsType, ReservedPropsType> &
-    // Specify overrides for each element directly as props
-    Omit<
-      NodeOverridesType<T>,
-      ReservedPropsType | VariantPropType | ArgPropType
-    > &
-    // Specify props for the root element
-    Omit<
-      Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
-      ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
-    >;
+type NodeComponentProps<T extends NodeNameType> = { // Explicitly specify variants, args, and overrides as objects
+  variants?: PlasmicExpandRoutesButton__VariantsArgs;
+  args?: PlasmicExpandRoutesButton__ArgsType;
+  overrides?: NodeOverridesType<T>;
+} & Omit<PlasmicExpandRoutesButton__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  // Specify args directly as props
+  Omit<PlasmicExpandRoutesButton__ArgsType, ReservedPropsType> &
+  // Specify overrides for each element directly as props
+  Omit<
+    NodeOverridesType<T>,
+    ReservedPropsType | VariantPropType | ArgPropType
+  > &
+  // Specify props for the root element
+  Omit<
+    Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
+    ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
+  >;
 
 function makeNodeComponent<NodeName extends NodeNameType>(nodeName: NodeName) {
   type PropsType = NodeComponentProps<NodeName> & { key?: React.Key };

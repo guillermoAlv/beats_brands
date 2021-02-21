@@ -34,6 +34,7 @@ import projectcss from "./plasmic_responsive_bb.module.css"; // plasmic-import: 
 import sty from "./PlasmicBrandCard.module.css"; // plasmic-import: HDfljj54Xp/css
 
 export type PlasmicBrandCard__VariantMembers = {};
+
 export type PlasmicBrandCard__VariantsArgs = {};
 type VariantPropType = keyof PlasmicBrandCard__VariantsArgs;
 export const PlasmicBrandCard__VariantProps = new Array<VariantPropType>();
@@ -103,14 +104,8 @@ function PlasmicBrandCard__RenderFunc(props: {
             <div
               data-plasmic-name={"brandCardCategory"}
               data-plasmic-override={overrides.brandCardCategory}
-              className={classNames(
-                defaultcss.all,
-                defaultcss.__wab_text,
-                sty.brandCardCategory
-              )}
-            >
-              {"Enter some text"}
-            </div>
+              className={classNames(defaultcss.all, sty.brandCardCategory)}
+            />
           </div>
         </div>
       </div>
@@ -140,26 +135,23 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicBrandCard__OverridesType,
   DescendantsType<T>
 >;
-
-type NodeComponentProps<T extends NodeNameType> =
-  // Explicitly specify variants, args, and overrides as objects
-  {
-    variants?: PlasmicBrandCard__VariantsArgs;
-    args?: PlasmicBrandCard__ArgsType;
-    overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicBrandCard__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    // Specify args directly as props
-    Omit<PlasmicBrandCard__ArgsType, ReservedPropsType> &
-    // Specify overrides for each element directly as props
-    Omit<
-      NodeOverridesType<T>,
-      ReservedPropsType | VariantPropType | ArgPropType
-    > &
-    // Specify props for the root element
-    Omit<
-      Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
-      ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
-    >;
+type NodeComponentProps<T extends NodeNameType> = { // Explicitly specify variants, args, and overrides as objects
+  variants?: PlasmicBrandCard__VariantsArgs;
+  args?: PlasmicBrandCard__ArgsType;
+  overrides?: NodeOverridesType<T>;
+} & Omit<PlasmicBrandCard__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  // Specify args directly as props
+  Omit<PlasmicBrandCard__ArgsType, ReservedPropsType> &
+  // Specify overrides for each element directly as props
+  Omit<
+    NodeOverridesType<T>,
+    ReservedPropsType | VariantPropType | ArgPropType
+  > &
+  // Specify props for the root element
+  Omit<
+    Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
+    ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
+  >;
 
 function makeNodeComponent<NodeName extends NodeNameType>(nodeName: NodeName) {
   type PropsType = NodeComponentProps<NodeName> & { key?: React.Key };

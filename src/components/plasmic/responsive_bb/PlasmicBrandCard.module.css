@@ -1,18 +1,20 @@
 .root {
-  display: block;
+  display: flex;
   width: 290px;
-  height: 213px;
+  height: auto;
   position: relative;
+  flex-direction: column;
 }
 @media (min-width: 0px) and (max-width: 800px) {
   .root {
-    width: 290px;
+    width: 100%;
     height: 213px;
+    min-width: 0;
   }
 }
 .box__h2XTk {
   display: flex;
-  position: absolute;
+  position: relative;
   width: 100%;
   height: 100%;
   left: auto;
@@ -24,36 +26,35 @@
 .box__pxJVv {
   display: block;
   position: relative;
-  background-color: rgb(255, 255, 255);
   width: 100%;
   height: 100%;
   min-width: 0;
   min-height: 0;
+  background: rgb(255, 255, 255);
 }
 .brandCardImage {
   display: block;
   position: absolute;
-  background-color: rgba(68, 192, 255, 0.2);
   width: 100%;
   height: 156px;
   left: auto;
   top: auto;
   min-width: 0;
+  background: rgba(68, 192, 255, 0.2);
 }
 .box__dV8TP {
   display: block;
   position: relative;
-  background-color: rgb(29, 178, 189);
   width: 100%;
   height: 60px;
   min-width: 0;
   flex-shrink: 0;
   border-radius: 6px;
+  background: rgb(29, 178, 189);
 }
 .box__anelK {
   display: flex;
   position: absolute;
-  background-color: rgba(68, 192, 255, 0.2);
   width: 100%;
   height: 100%;
   left: auto;
@@ -64,6 +65,7 @@
   padding-left: 20px;
   min-width: 0;
   min-height: 0;
+  background: rgba(68, 192, 255, 0.2);
 }
 .brandCardName {
   position: relative;
@@ -82,7 +84,8 @@
   height: auto;
   left: auto;
   top: auto;
-  font-family: "Muli";
-  font-size: 12px;
-  display: inline-block;
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 }

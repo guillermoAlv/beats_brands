@@ -3,9 +3,9 @@
   width: 100%;
   height: 100%;
   position: relative;
-  background-color: #ffffff;
   min-width: 0;
   min-height: 0;
+  background: #ffffff;
 }
 .box__eIlmj {
   display: flex;
@@ -23,13 +23,13 @@
 .headerRow {
   display: block;
   position: relative;
-  background-color: rgba(89, 255, 68, 0.2);
   width: 100%;
   height: 60px;
   left: auto;
   top: auto;
   min-width: 0;
   flex-shrink: 0;
+  background: rgba(89, 255, 68, 0.2);
 }
 .box___5DwIc {
   display: flex;
@@ -45,13 +45,12 @@
 .heroRow {
   display: block;
   position: relative;
-  background-color: rgba(255, 255, 68, 0.2);
   width: 100%;
   height: 100px;
-  background-image: url("./images/clarkVanDerBekenTk0B3Dfkf4Unsplash21Jpg.jpeg");
-  background-size: cover;
   min-width: 0;
   flex-shrink: 0;
+  background: url("./images/clarkVanDerBekenTk0B3Dfkf4Unsplash21Jpg.jpeg") 0% 0% / cover,
+    rgba(255, 255, 68, 0.2) 0% 0% / auto auto;
 }
 @media (min-width: 0px) and (max-width: 800px) {
   .heroRow {
@@ -75,13 +74,13 @@
   width: 100%;
   height: auto;
   position: relative;
-  background-color: rgb(255, 255, 255);
   min-height: 300px;
   left: auto;
   top: auto;
   flex-direction: column;
   min-width: 0;
   padding: 60px;
+  background: rgb(255, 255, 255);
 }
 .box__iYxWg > :global(.__wab_flex-container) {
   flex-direction: column;
@@ -208,7 +207,6 @@
 .box__aToF4 {
   display: flex;
   position: relative;
-  background-color: rgb(238, 238, 238);
   width: 100%;
   height: 40px;
   left: auto;
@@ -218,6 +216,7 @@
   align-items: center;
   min-width: 0;
   flex-shrink: 0;
+  background: rgb(238, 238, 238);
 }
 .box__pG2N {
   position: relative;
@@ -247,7 +246,6 @@
 .box__pUhZx {
   display: flex;
   position: relative;
-  background-color: rgb(17, 178, 189);
   width: 100px;
   height: 40px;
   flex-direction: row;
@@ -255,6 +253,7 @@
   align-items: center;
   flex-shrink: 0;
   border-radius: 6px;
+  background: rgb(17, 178, 189);
 }
 .box__qncQk {
   position: relative;
@@ -269,13 +268,13 @@
 .footerRow {
   display: block;
   position: relative;
-  background-color: rgb(29, 178, 189);
   width: 100%;
   height: 98px;
   left: auto;
   top: auto;
   min-width: 0;
   flex-shrink: 0;
+  background: rgb(29, 178, 189);
 }
 .box__xpoU8 {
   display: flex;

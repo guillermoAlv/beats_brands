@@ -36,7 +36,8 @@
             "modulePath": "MainPage.tsx"
           },
           "cssFilePath": "plasmic/responsive_bb/PlasmicMainPage.module.css",
-          "scheme": "blackbox"
+          "scheme": "blackbox",
+          "componentType": "component"
         },
         {
           "id": "N1xWE1svjO",
@@ -48,7 +49,8 @@
             "modulePath": "HeaderRowComp.tsx"
           },
           "cssFilePath": "plasmic/responsive_bb/PlasmicHeaderRowComp.module.css",
-          "scheme": "blackbox"
+          "scheme": "blackbox",
+          "componentType": "component"
         },
         {
           "id": "DFJFHCaPCd",
@@ -60,7 +62,8 @@
             "modulePath": "RoutesDialog.tsx"
           },
           "cssFilePath": "plasmic/responsive_bb/PlasmicRoutesDialog.module.css",
-          "scheme": "blackbox"
+          "scheme": "blackbox",
+          "componentType": "component"
         },
         {
           "id": "Ra6hYxqoFV",
@@ -72,7 +75,8 @@
             "modulePath": "ExpandRoutesButton.tsx"
           },
           "cssFilePath": "plasmic/responsive_bb/PlasmicExpandRoutesButton.module.css",
-          "scheme": "blackbox"
+          "scheme": "blackbox",
+          "componentType": "component"
         },
         {
           "id": "Px_8qz3kVB",
@@ -84,7 +88,8 @@
             "modulePath": "SearchCard.tsx"
           },
           "cssFilePath": "plasmic/responsive_bb/PlasmicSearchCard.module.css",
-          "scheme": "blackbox"
+          "scheme": "blackbox",
+          "componentType": "component"
         },
         {
           "id": "HDfljj54Xp",
@@ -96,7 +101,8 @@
             "modulePath": "BrandCard.tsx"
           },
           "cssFilePath": "plasmic/responsive_bb/PlasmicBrandCard.module.css",
-          "scheme": "blackbox"
+          "scheme": "blackbox",
+          "componentType": "component"
         },
         {
           "id": "kdE_dd2jbPd",
@@ -108,7 +114,8 @@
             "modulePath": "SubscribePage.tsx"
           },
           "cssFilePath": "plasmic/responsive_bb/PlasmicSubscribePage.module.css",
-          "scheme": "blackbox"
+          "scheme": "blackbox",
+          "componentType": "component"
         },
         {
           "id": "yLOYoxRMwJ",
@@ -120,7 +127,8 @@
             "modulePath": "HeaderClickableText.tsx"
           },
           "cssFilePath": "plasmic/responsive_bb/PlasmicHeaderClickableText.module.css",
-          "scheme": "blackbox"
+          "scheme": "blackbox",
+          "componentType": "component"
         },
         {
           "id": "E4MwO2Nk-p",
@@ -132,7 +140,21 @@
             "modulePath": "DialogClickableText.tsx"
           },
           "cssFilePath": "plasmic/responsive_bb/PlasmicDialogClickableText.module.css",
-          "scheme": "blackbox"
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "POlLgbVSFD",
+          "name": "StoreCard",
+          "type": "managed",
+          "projectId": "wBcw9dcxKyU36yfsUviVdG",
+          "renderModuleFilePath": "plasmic/responsive_bb/PlasmicStoreCard.tsx",
+          "importSpec": {
+            "modulePath": "StoreCard.tsx"
+          },
+          "cssFilePath": "plasmic/responsive_bb/PlasmicStoreCard.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -150,6 +172,101 @@
           "id": "fezaFbqFB",
           "name": "HangersvgIcon",
           "moduleFilePath": "plasmic/responsive_bb/icons/PlasmicIcon__Hangersvg.tsx"
+        },
+        {
+          "id": "vDHQWBd8eL",
+          "name": "Line8Icon",
+          "moduleFilePath": "plasmic/responsive_bb/icons/PlasmicIcon__Line8.tsx"
+        },
+        {
+          "id": "xJW5VBVoHga",
+          "name": "Line9Icon",
+          "moduleFilePath": "plasmic/responsive_bb/icons/PlasmicIcon__Line9.tsx"
+        },
+        {
+          "id": "Vph_nWL1i9u",
+          "name": "Line92Icon",
+          "moduleFilePath": "plasmic/responsive_bb/icons/PlasmicIcon__Line92.tsx"
+        },
+        {
+          "id": "AelBxIAIdOu",
+          "name": "Vector7Icon",
+          "moduleFilePath": "plasmic/responsive_bb/icons/PlasmicIcon__Vector7.tsx"
+        },
+        {
+          "id": "GhNEvngnIGJ",
+          "name": "Union2Icon",
+          "moduleFilePath": "plasmic/responsive_bb/icons/PlasmicIcon__Union2.tsx"
+        },
+        {
+          "id": "viG_oLN9xp",
+          "name": "Line1Icon",
+          "moduleFilePath": "plasmic/responsive_bb/icons/PlasmicIcon__Line1.tsx"
+        },
+        {
+          "id": "fPf1uqzYly",
+          "name": "Line12Icon",
+          "moduleFilePath": "plasmic/responsive_bb/icons/PlasmicIcon__Line12.tsx"
+        },
+        {
+          "id": "ZP8XwREzTyT",
+          "name": "Line13Icon",
+          "moduleFilePath": "plasmic/responsive_bb/icons/PlasmicIcon__Line13.tsx"
+        },
+        {
+          "id": "_8cl6dH60Qv",
+          "name": "Line14Icon",
+          "moduleFilePath": "plasmic/responsive_bb/icons/PlasmicIcon__Line14.tsx"
+        },
+        {
+          "id": "BveF1vG5zUW",
+          "name": "Line10Icon",
+          "moduleFilePath": "plasmic/responsive_bb/icons/PlasmicIcon__Line10.tsx"
+        },
+        {
+          "id": "1xn5E_x_fjm",
+          "name": "Rectangle54Icon",
+          "moduleFilePath": "plasmic/responsive_bb/icons/PlasmicIcon__Rectangle54.tsx"
+        },
+        {
+          "id": "RPQbm5HDneh",
+          "name": "Rectangle55Icon",
+          "moduleFilePath": "plasmic/responsive_bb/icons/PlasmicIcon__Rectangle55.tsx"
+        },
+        {
+          "id": "BifcRnDdHGs",
+          "name": "Rectangle552Icon",
+          "moduleFilePath": "plasmic/responsive_bb/icons/PlasmicIcon__Rectangle552.tsx"
+        },
+        {
+          "id": "FlGDlNBBN41",
+          "name": "Rectangle553Icon",
+          "moduleFilePath": "plasmic/responsive_bb/icons/PlasmicIcon__Rectangle553.tsx"
+        },
+        {
+          "id": "raBaFkFMNSE",
+          "name": "Union3Icon",
+          "moduleFilePath": "plasmic/responsive_bb/icons/PlasmicIcon__Union3.tsx"
+        },
+        {
+          "id": "x6BR45bYnBe",
+          "name": "Vector13Icon",
+          "moduleFilePath": "plasmic/responsive_bb/icons/PlasmicIcon__Vector13.tsx"
+        },
+        {
+          "id": "pxe17EYG8dI",
+          "name": "Vector14Icon",
+          "moduleFilePath": "plasmic/responsive_bb/icons/PlasmicIcon__Vector14.tsx"
+        },
+        {
+          "id": "ZN8X9wGJbqY",
+          "name": "Vector15Icon",
+          "moduleFilePath": "plasmic/responsive_bb/icons/PlasmicIcon__Vector15.tsx"
+        },
+        {
+          "id": "ay9VF6i5Ixa",
+          "name": "Union4Icon",
+          "moduleFilePath": "plasmic/responsive_bb/icons/PlasmicIcon__Union4.tsx"
         }
       ],
       "images": [
@@ -157,6 +274,46 @@
           "id": "AZt8oO7ef",
           "name": "clark-van-der-beken-Tk0B3Dfkf_4-unsplash (2) (1).jpg",
           "filePath": "plasmic/responsive_bb/images/clarkVanDerBekenTk0B3Dfkf4Unsplash21Jpg.jpeg"
+        },
+        {
+          "id": "RMawL2Akt",
+          "name": "image 2",
+          "filePath": "plasmic/responsive_bb/images/image2.png"
+        },
+        {
+          "id": "iYQRY2SgYl",
+          "name": "Image 3",
+          "filePath": "plasmic/responsive_bb/images/image3.png"
+        },
+        {
+          "id": "Z081Rt8M0K",
+          "name": "Union",
+          "filePath": "plasmic/responsive_bb/images/union.svg"
+        },
+        {
+          "id": "mw5Wu84IUgZ",
+          "name": "Star",
+          "filePath": "plasmic/responsive_bb/images/star.svg"
+        },
+        {
+          "id": "2SArlxyMYL-",
+          "name": "Ellipse 60",
+          "filePath": "plasmic/responsive_bb/images/ellipse60.svg"
+        },
+        {
+          "id": "qrDy_Vqw8F",
+          "name": "Vector",
+          "filePath": "plasmic/responsive_bb/images/vector.svg"
+        },
+        {
+          "id": "Emz_Ihxpp",
+          "name": "Unsplash 1",
+          "filePath": "plasmic/responsive_bb/images/unsplash1.png"
+        },
+        {
+          "id": "JSZ6ZdsIn",
+          "name": "Unsplash 2",
+          "filePath": "plasmic/responsive_bb/images/unsplash2.png"
         }
       ],
       "jsBundleThemes": []
@@ -172,6 +329,6 @@
       }
     ]
   },
-  "cliVersion": "0.1.94",
-  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.94/dist/plasmic.schema.json"
+  "cliVersion": "0.1.111",
+  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.111/dist/plasmic.schema.json"
 }

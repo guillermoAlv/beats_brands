@@ -7,6 +7,7 @@ import {
 } from "./plasmic/responsive_bb/PlasmicMainPage";
 import SearchCard from "./SearchCard"
 import BrandCard from "./BrandCard"
+import StoreCard from "./StoreCard"
 import CustomSearchBox from './CustomSearchBox';
 import {
   connectStateResults,
@@ -25,24 +26,38 @@ import {
 //
 // You can also stop extending from DefaultMainPageProps altogether and have
 // total control over the props for your component.
+function Tags({tag, ...props}: any){
+  return (<div style={{margin:'10px 10px 10px 0px', backgroundColor:'#EEEEEE', padding:'3px'}}>{'#'+tag}</div>)
+}
+
+
 function Hit(props: any) {
   var cat = ""
+  var listItems: any = null
+  console.log(props.hit["tags"])
   if (Array.isArray(props.hit["tags"])){
-    cat = props.hit["tags"][0]
+    listItems = props.hit["tags"].map((tag_text: string) =><li>{<Tags tag={tag_text}/>}</li>);
   }else{
     cat = props.hit["tags"]
   }
-  return <a href={props.hit["url"]} target="_blank" rel="noreferrer"><BrandCard 
-    brandCardImage={<img alt="brand" style={{maxWidth: "100%"}} src={props.hit["url_site_image"]}/>}
-    name={props.hit["name"]}
-    category={"#"+ cat}/></a>
+  return <a href={props.hit["url"]} target="_blank" rel="noreferrer">
+    <StoreCard 
+      tags={<div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'flex-start'}}>
+          {listItems}</div>}/>
+      {/*<BrandCard 
+        brandCardImage={<img alt="brand" style={{maxWidth: "100%"}} src={props.hit["url_site_image"]}/>}
+        name={props.hit["name"]}
+        //category={"#"+ cat}
+        category={<span>asfdadf</span>}
+      />*/}
+    </a>
 }
 
 function connectedResult(te: (searchTerm: string)=>void, {searchState, searchResults, children}: any){
   if(searchResults===null || searchResults["query"]===""){
     return (<SearchCard searchTerm={"Zapatos"} onClick={te}/>)
   }else{
-    return (<div><Hits hitComponent={Hit} /></div>)
+    return (<div className={'myclase'}><Hits hitComponent={Hit} /></div>)
   }
 }
 

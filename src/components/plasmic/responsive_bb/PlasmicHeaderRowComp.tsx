@@ -30,7 +30,7 @@ import {
 import HeaderClickableText from "../../HeaderClickableText"; // plasmic-import: yLOYoxRMwJ/component
 import ExpandRoutesButton from "../../ExpandRoutesButton"; // plasmic-import: Ra6hYxqoFV/component
 
-import { ScreenContext, ScreenValue } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: E1isZEegCA11/globalVariant
+import { useScreenVariants } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: E1isZEegCA11/globalVariant
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 import defaultcss from "../plasmic__default_style.module.css"; // plasmic-import: global/defaultcss
@@ -38,6 +38,7 @@ import projectcss from "./plasmic_responsive_bb.module.css"; // plasmic-import: 
 import sty from "./PlasmicHeaderRowComp.module.css"; // plasmic-import: N1xWE1svjO/css
 
 export type PlasmicHeaderRowComp__VariantMembers = {};
+
 export type PlasmicHeaderRowComp__VariantsArgs = {};
 type VariantPropType = keyof PlasmicHeaderRowComp__VariantsArgs;
 export const PlasmicHeaderRowComp__VariantProps = new Array<VariantPropType>();
@@ -84,7 +85,7 @@ function PlasmicHeaderRowComp__RenderFunc(props: {
   const { variants, args, overrides, forNode } = props;
 
   const globalVariants = ensureGlobalVariants({
-    screen: React.useContext(ScreenContext)
+    screen: useScreenVariants()
   });
 
   return (
@@ -230,26 +231,23 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicHeaderRowComp__OverridesType,
   DescendantsType<T>
 >;
-
-type NodeComponentProps<T extends NodeNameType> =
-  // Explicitly specify variants, args, and overrides as objects
-  {
-    variants?: PlasmicHeaderRowComp__VariantsArgs;
-    args?: PlasmicHeaderRowComp__ArgsType;
-    overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicHeaderRowComp__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    // Specify args directly as props
-    Omit<PlasmicHeaderRowComp__ArgsType, ReservedPropsType> &
-    // Specify overrides for each element directly as props
-    Omit<
-      NodeOverridesType<T>,
-      ReservedPropsType | VariantPropType | ArgPropType
-    > &
-    // Specify props for the root element
-    Omit<
-      Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
-      ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
-    >;
+type NodeComponentProps<T extends NodeNameType> = { // Explicitly specify variants, args, and overrides as objects
+  variants?: PlasmicHeaderRowComp__VariantsArgs;
+  args?: PlasmicHeaderRowComp__ArgsType;
+  overrides?: NodeOverridesType<T>;
+} & Omit<PlasmicHeaderRowComp__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  // Specify args directly as props
+  Omit<PlasmicHeaderRowComp__ArgsType, ReservedPropsType> &
+  // Specify overrides for each element directly as props
+  Omit<
+    NodeOverridesType<T>,
+    ReservedPropsType | VariantPropType | ArgPropType
+  > &
+  // Specify props for the root element
+  Omit<
+    Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
+    ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
+  >;
 
 function makeNodeComponent<NodeName extends NodeNameType>(nodeName: NodeName) {
   type PropsType = NodeComponentProps<NodeName> & { key?: React.Key };

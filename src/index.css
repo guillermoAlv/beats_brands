@@ -52,7 +52,8 @@ main{
 }
 ul{
   display: flex;
-  flex-wrap: wrap
+  flex-wrap: wrap;
+  padding: 0px;
 }
 li{
   list-style-type: none;
@@ -126,4 +127,20 @@ height: 100%;
 
 .ais-Hits-item {
     margin: 10px;
+}
+
+div[class*="PlasmicBrandCard_brandCardImage"] {
+  overflow: hidden;
+}
+
+@media (max-width: 600px) {
+  .myclase {
+    width: 100%;
+  }
+  .ais-Hits-list{
+    flex-direction: column;
+  }
+  div[class*="PlasmicStoreCard_storeCardTagsCont"] { order: 3; }
+  div[class*="PlasmicStoreCard_storeCardImageCont"] { order: 2; }
+  div[class*="PlasmicStoreCard_storeCardStoreNameCont"] { order: 1; }
 }
