@@ -6,7 +6,7 @@ import {
   DefaultMainPageProps
 } from "./plasmic/responsive_bb/PlasmicMainPage";
 import SearchCard from "./SearchCard"
-import BrandCard from "./BrandCard"
+//import BrandCard from "./BrandCard"
 import StoreCard from "./StoreCard"
 import CustomSearchBox from './CustomSearchBox';
 import {
@@ -32,13 +32,13 @@ function Tags({tag, ...props}: any){
 
 
 function Hit(props: any) {
-  var cat = ""
+  //var cat = ""
   var listItems: any = null
   console.log(props.hit["tags"])
   if (Array.isArray(props.hit["tags"])){
     listItems = props.hit["tags"].map((tag_text: string) =><li>{<Tags tag={tag_text}/>}</li>);
   }else{
-    cat = props.hit["tags"]
+    //cat = props.hit["tags"]
   }
   return <a href={props.hit["url"]} target="_blank" rel="noreferrer">
     <StoreCard 
