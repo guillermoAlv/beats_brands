@@ -39,20 +39,28 @@ export type PlasmicStoreCard__VariantsArgs = {};
 type VariantPropType = keyof PlasmicStoreCard__VariantsArgs;
 export const PlasmicStoreCard__VariantProps = new Array<VariantPropType>();
 
-export type PlasmicStoreCard__ArgsType = {};
+export type PlasmicStoreCard__ArgsType = {
+  brandName?: React.ReactNode;
+  storeCardImageCont?: React.ReactNode;
+};
+
 type ArgPropType = keyof PlasmicStoreCard__ArgsType;
-export const PlasmicStoreCard__ArgProps = new Array<ArgPropType>();
+export const PlasmicStoreCard__ArgProps = new Array<ArgPropType>(
+  "brandName",
+  "storeCardImageCont"
+);
 
 export type PlasmicStoreCard__OverridesType = {
   root?: p.Flex<"div">;
   storeCardImageCont?: p.Flex<"div">;
   img?: p.Flex<"img">;
   storeCardStoreNameCont?: p.Flex<"div">;
-  box?: p.Flex<"div">;
   storeCardTagsCont?: p.Flex<"div">;
 };
 
 export interface DefaultStoreCardProps {
+  brandName?: React.ReactNode;
+  storeCardImageCont?: React.ReactNode;
   className?: string;
 }
 
@@ -77,15 +85,20 @@ function PlasmicStoreCard__RenderFunc(props: {
         data-plasmic-override={overrides.storeCardImageCont}
         className={classNames(defaultcss.all, sty.storeCardImageCont)}
       >
-        <img
-          data-plasmic-name={"img"}
-          data-plasmic-override={overrides.img}
-          alt={""}
-          className={classNames(defaultcss.img, sty.img)}
-          role={"img"}
-          src={
-            "https://www.wrsoluciones.es/d2cbrands/capitandenim.com.png" as const
+        <p.PlasmicSlot
+          defaultContents={
+            <img
+              data-plasmic-name={"img"}
+              data-plasmic-override={overrides.img}
+              alt={""}
+              className={classNames(defaultcss.img, sty.img)}
+              role={"img"}
+              src={
+                "https://www.wrsoluciones.es/d2cbrands/capitandenim.com.png" as const
+              }
+            />
           }
+          value={args.storeCardImageCont}
         />
       </div>
 
@@ -94,13 +107,7 @@ function PlasmicStoreCard__RenderFunc(props: {
         data-plasmic-override={overrides.storeCardStoreNameCont}
         className={classNames(defaultcss.all, sty.storeCardStoreNameCont)}
       >
-        <div
-          data-plasmic-name={"box"}
-          data-plasmic-override={overrides.box}
-          className={classNames(defaultcss.all, defaultcss.__wab_text, sty.box)}
-        >
-          {"Brand Name"}
-        </div>
+        <p.PlasmicSlot defaultContents={"Brand Name"} value={args.brandName} />
       </div>
 
       <div
@@ -118,13 +125,11 @@ const PlasmicDescendants = {
     "storeCardImageCont",
     "img",
     "storeCardStoreNameCont",
-    "box",
     "storeCardTagsCont"
   ],
   storeCardImageCont: ["storeCardImageCont", "img"],
   img: ["img"],
-  storeCardStoreNameCont: ["storeCardStoreNameCont", "box"],
-  box: ["box"],
+  storeCardStoreNameCont: ["storeCardStoreNameCont"],
   storeCardTagsCont: ["storeCardTagsCont"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -136,7 +141,6 @@ type NodeDefaultElementType = {
   storeCardImageCont: "div";
   img: "img";
   storeCardStoreNameCont: "div";
-  box: "div";
   storeCardTagsCont: "div";
 };
 
@@ -198,7 +202,6 @@ export const PlasmicStoreCard = Object.assign(
     storeCardImageCont: makeNodeComponent("storeCardImageCont"),
     img: makeNodeComponent("img"),
     storeCardStoreNameCont: makeNodeComponent("storeCardStoreNameCont"),
-    box: makeNodeComponent("box"),
     storeCardTagsCont: makeNodeComponent("storeCardTagsCont"),
 
     // Metadata about props expected for PlasmicStoreCard

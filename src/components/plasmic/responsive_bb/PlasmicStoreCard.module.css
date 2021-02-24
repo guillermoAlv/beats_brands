@@ -16,17 +16,12 @@
   min-width: 0;
 }
 .img {
-  position: relative;
   object-fit: contain;
+  position: relative;
   width: 100%;
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
   min-width: 0;
-}
-@media (min-width: 0px) and (max-width: 800px) {
-  .img {
-    border-radius: 0px;
-  }
 }
 .storeCardStoreNameCont {
   display: flex;
@@ -44,9 +39,6 @@
     border-radius: 0px;
     border-width: 0px;
   }
-}
-.box {
-  position: relative;
 }
 .storeCardTagsCont {
   display: flex;

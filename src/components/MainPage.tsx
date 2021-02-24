@@ -33,8 +33,8 @@ function Tags({tag, ...props}: any){
 
 function Hit(props: any) {
   //var cat = ""
+  console.log(props.hit)
   var listItems: any = null
-  console.log(props.hit["tags"])
   if (Array.isArray(props.hit["tags"])){
     listItems = props.hit["tags"].map((tag_text: string) =><li>{<Tags tag={tag_text}/>}</li>);
   }else{
@@ -42,14 +42,10 @@ function Hit(props: any) {
   }
   return <a href={props.hit["url"]} target="_blank" rel="noreferrer">
     <StoreCard 
+      brandName={<span className="brand_name" >{props.hit["name"]}</span>}
+      storeCardImageCont={<img className="image_brand" alt="" role="img" src={props.hit['url_site_image']}></img>}
       tags={<div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'flex-start'}}>
           {listItems}</div>}/>
-      {/*<BrandCard 
-        brandCardImage={<img alt="brand" style={{maxWidth: "100%"}} src={props.hit["url_site_image"]}/>}
-        name={props.hit["name"]}
-        //category={"#"+ cat}
-        category={<span>asfdadf</span>}
-      />*/}
     </a>
 }
 

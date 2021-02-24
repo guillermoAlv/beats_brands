@@ -133,6 +133,16 @@ div[class*="PlasmicBrandCard_brandCardImage"] {
   overflow: hidden;
 }
 
+.brand_name{
+  font-family: 'Mulish', serif;
+  font-weight: 600;
+  font-size: 25px;
+}
+.image_brand{
+  width: 100%;
+  border-radius: 20px 20px 0 0;
+}
+
 @media (max-width: 600px) {
   .myclase {
     width: 100%;
@@ -143,4 +153,14 @@ div[class*="PlasmicBrandCard_brandCardImage"] {
   div[class*="PlasmicStoreCard_storeCardTagsCont"] { order: 3; }
   div[class*="PlasmicStoreCard_storeCardImageCont"] { order: 2; }
   div[class*="PlasmicStoreCard_storeCardStoreNameCont"] { order: 1; }
+
+  .brand_name{
+    font-family: 'Mulish', serif;
+    font-weight: 600;
+    font-size: 20px;
+  }
+  .image_brand{
+    width: 100%;
+    border-radius: 0 0 0 0;
+  }
 }
