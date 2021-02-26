@@ -44,12 +44,14 @@ export const PlasmicMainPage__VariantProps = new Array<VariantPropType>();
 export type PlasmicMainPage__ArgsType = {
   storesResults?: React.ReactNode;
   heroRowSearchbox?: React.ReactNode;
+  searchSlider?: React.ReactNode;
 };
 
 type ArgPropType = keyof PlasmicMainPage__ArgsType;
 export const PlasmicMainPage__ArgProps = new Array<ArgPropType>(
   "storesResults",
-  "heroRowSearchbox"
+  "heroRowSearchbox",
+  "searchSlider"
 );
 
 export type PlasmicMainPage__OverridesType = {
@@ -63,6 +65,7 @@ export type PlasmicMainPage__OverridesType = {
 export interface DefaultMainPageProps {
   storesResults?: React.ReactNode;
   heroRowSearchbox?: React.ReactNode;
+  searchSlider?: React.ReactNode;
   className?: string;
 }
 
@@ -144,11 +147,15 @@ function PlasmicMainPage__RenderFunc(props: {
           </div>
         </div>
 
-        <div
-          data-plasmic-name={"navRow"}
-          data-plasmic-override={overrides.navRow}
-          className={classNames(defaultcss.all, sty.navRow)}
-        />
+        {false ? (
+          <div
+            data-plasmic-name={"navRow"}
+            data-plasmic-override={overrides.navRow}
+            className={classNames(defaultcss.all, sty.navRow)}
+          >
+            <p.PlasmicSlot defaultContents={null} value={args.searchSlider} />
+          </div>
+        ) : null}
 
         <div
           data-plasmic-name={"storesRow"}

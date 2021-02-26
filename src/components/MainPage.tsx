@@ -27,16 +27,21 @@ import {
 // You can also stop extending from DefaultMainPageProps altogether and have
 // total control over the props for your component.
 function Tags({tag, ...props}: any){
-  return (<div style={{margin:'10px 10px 10px 0px', backgroundColor:'#EEEEEE', padding:'3px'}}>{'#'+tag}</div>)
+  return (<div style={{margin:'10px 10px 10px 0px', backgroundColor:'#EEEEEE', padding:'3px'}}>{tag}</div>)
 }
 
 
 function Hit(props: any) {
   //var cat = ""
-  console.log(props.hit)
   var listItems: any = null
   if (Array.isArray(props.hit["tags"])){
+    if(props.hit["tags"].length > 3){
+      props.hit["tags"] = props.hit["tags"].slice(0,3)
+      props.hit["tags"].push("mas...")
+    }
+    else{
     listItems = props.hit["tags"].map((tag_text: string) =><li>{<Tags tag={tag_text}/>}</li>);
+    }
   }else{
     //cat = props.hit["tags"]
   }
@@ -50,9 +55,27 @@ function Hit(props: any) {
 }
 
 function connectedResult(te: (searchTerm: string)=>void, {searchState, searchResults, children}: any){
+  function getRandom(arr:any, n:any) {
+    var result = new Array(n),
+        len = arr.length,
+        taken = new Array(len);
+    if (n > len)
+        throw new RangeError("getRandom: more elements taken than available");
+    while (n--) {
+        var x = Math.floor(Math.random() * len);
+        result[n] = arr[x in taken ? taken[x] : x];
+        taken[x] = --len in taken ? taken[len] : len;
+    }
+    return result;
+  }
+  
   if(searchResults===null || searchResults["query"]===""){
     return (<SearchCard searchTerm={"Zapatos"} onClick={te}/>)
   }else{
+    if(searchResults['hits'].length > 6){
+      var resultArr = getRandom(searchResults['hits'],6)
+      searchResults['hits'] = resultArr;
+    }
     return (<div className={'myclase'}><Hits hitComponent={Hit} /></div>)
   }
 }
@@ -68,6 +91,7 @@ function MainPage({searchMethod,searchTerm, ...props}: MainPageProps) {
         <PlasmicMainPage
           storesResults={<Results/>}
           heroRowSearchbox={<CustomSearchBox defaultSearch={searchTerm}/>}
+          //searchSlider={<ScrollBox></ScrollBox>}
           {...props} />);
 }
 

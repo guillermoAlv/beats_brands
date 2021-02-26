@@ -18,7 +18,7 @@ function FullMainPage() {
     const [defaultSearch, setDefaultSearch] = React.useState("")
     const node = React.useRef<any>();
     console.log(isRouteDialogShowed)
-    return <div style={{width:"100%"}}><InstantSearch searchClient={searchClient} indexName="brands_beats">
+    return <div style={{width:"100%"}}><InstantSearch searchClient={searchClient} indexName="brands_beats">{/*<Configure hitsPerPage={6} />*/}
         <div style={{width: "100%", position: "fixed", top: "0px", zIndex: 1}}>
         <HeaderRowComp menuButtonRef={node}
               expand={()=>{updateRouteDialog(!isRouteDialogShowed)}} 
